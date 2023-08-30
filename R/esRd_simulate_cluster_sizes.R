@@ -1,5 +1,4 @@
 
-
 #' @title Simulation of identical sequence clusters.
 #'
 #' @description `n_clusters` identical sequence clusters of sizes `1` to `max_cluster_size`
@@ -16,16 +15,21 @@
 #' @param testing_proba Probability that a case is confirmed by a test.
 #' @param sequencing_proba Probability that the genome of a confirmed case is sequenced.
 #'
-#' @details
+#' @details More details can be found in the following paper: ADD REFERENCE
 #'
-#' @return
+#' @return A `data.frame` with three columns, `size`, `frequency` and `percentage`,
+#' containing size and frequency of the simulated identical sequence clusters as well as the
+#' proportion of the identical sequence clusters of each size.
 #'
 #' @export
 #'
 #' @examples esRd_simulate_cluster_sizes()
 #'
 #' @importFrom dplyr filter
+#' @importFrom dplyr mutate
 #' @importFrom dplyr pull
+#' @importFrom stats rbinom
+#' @importFrom stats rnbinom
 esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
                                         max_cluster_size = 2500,
                                         R = 1.0,
@@ -35,91 +39,48 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
                                         testing_proba = 0.6,
                                         sequencing_proba = 0.4) {
 
-  # distribution of the size of identical sequence clusters
+  # calculate mutation probability
+  mutation_proba <- 1 - exp(- yearly_mutation_rate / 365.25 * mean_generation_interval)
+
+  # calculate detection probability
+  detection_proba <- testing_proba * sequencing_proba
+
+  # create data frame to store the size of the simulated identical sequence clusters
   n_nodes_identical_sequence_clusters_sim <- data.frame(size = c(0:max_cluster_size),
                                                         frequency = rep(x = 0, times = max_cluster_size + 1))
 
-  # simulate transmission trees and store the sizes of the identical sequence clusters they contain
-  # until at least n_clusters identical sequence clusters have been created
-  # convention: the size of an identical sequence cluster is the number of nodes that have transmitted the respective variant to their (direct) offspring (might have zero offspring)
-  while (sum(n_nodes_identical_sequence_clusters_sim$frequency[-1]) < n_clusters) {
+  # simulate identical sequence clusters until at least n_clusters identical sequence clusters have been created
+  # convention: the size of an identical sequence cluster is the number of detected nodes that have transmitted the respective variant to their (direct) offspring (might have zero offspring)
+  while (sum(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(size >= 1) |> dplyr::pull(frequency)) < n_clusters) {
 
-    # 1 - simulate transmission tree ----
-    # offspring distribution: negative binomial distribution with parameters size = k (dispersion parameter) and mu = R (mean)
-    tree <- esRd_create_tree_structure(R = R, k = k, max_tree_size = max_cluster_size)
+    # create initial case and determine whether it is detected or not
+    n_free_leaves <- 1
+    n_nodes_detected <- stats::rbinom(n = 1, size = 1, prob = detection_proba)
 
-    nodes <- tree[[1]]
-    leaves <- tree[[2]]
-    edges <- tree[[3]]
+    # add new cases to the identical sequence cluster as long as there are free leaves,
+    # i.e. cases for which the number of offspring has not been determined yet
+    while ((n_free_leaves > 0) && (n_nodes_detected <= max_cluster_size)) {
 
-    # 2 - simulate mutations ----
-    # whether a mutation occurs at a node or not is determined by a Bernoulli distribution with parameter mutation_proba
-    mutation_proba <- 1 - exp(- yearly_mutation_rate / 365.25 * mean_generation_interval)
+      # number of offspring of the free leaf
+      n_new_leaves_tree <- stats::rnbinom(n = 1, size = k, mu = R)
 
-    tree_mutation_information <- esRd_apply_mutations(nodes = nodes, edges = edges, mutation_proba = mutation_proba)
+      # number of offspring in the same identical sequence cluster of the free leaf
+      n_new_leaves_cluster <- sum(stats::rbinom(n = n_new_leaves_tree, size = 1, prob = 1 - mutation_proba))
 
-    nodes_a <- tree_mutation_information[[1]]
-    edges_a <- tree_mutation_information[[2]]
+      # determine which of the new cases are detected and update the number of detected cases of the identical sequence cluster
+      n_nodes_detected <- n_nodes_detected + sum(stats::rbinom(n = n_new_leaves_cluster, size = 1, prob = detection_proba))
 
-    # 3 - simulate detection ----
-    # whether a node is detected or not is determined by a Bernoulli distribution with parameter detection_proba
-    detection_proba <- testing_proba * sequencing_proba
-
-    tree_detection <- esRd_apply_case_detection(nodes = nodes_a, edges = edges_a, detection_proba = detection_proba)
-
-    nodes_b <- tree_detection[[1]]
-    edges_b <- tree_detection[[2]]
-
-    # determine the variants present in the tree whose corresponding identical sequence cluster have size at least 1:
-    # variant 0, the variant that the first node received, is such a variant if no mutation occurred at the first node
-    # remark: the other variants (all variant except variant 0) are named as follows: number of node at which they appeared as the result of a mutation
-    if (nodes_a$mutation_occured[1] == 1) {
-
-      variants <- nodes_a |> dplyr::filter(mutation_occured == 1) |> dplyr::pull(node_key)
-
-    } else {
-
-      variants <- c(0, nodes_a |> dplyr::filter(mutation_occured == 1) |> dplyr::pull(node_key))
+      # update the number of free leaves of the identical sequence cluster
+      # add the new cases of the identical sequence cluster and remove the free leaf whose offspring have been determined
+      n_free_leaves <- n_free_leaves + n_new_leaves_cluster - 1
 
     }
 
-    # go through all variants
-    for (jj in variants) {
-
-      # check whether some clusters still need to be simulated
-      if (sum(n_nodes_identical_sequence_clusters_sim$frequency[-1]) < n_clusters) {
-
-        # determine nodes belonging to the identical sequence cluster
-        variant_subtree_nodes <- nodes_a |> dplyr::filter((mutation_occured == 0 & variant_received == jj) | (mutation_occured == 1 & variant_after_mutation == jj))
-
-        # check whether one (or more) of the nodes of the variant subtree is a free leaf
-        if (length(intersect(variant_subtree_nodes$node_key, leaves$node_key)) == 0) {
-
-          # determine the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          n_nodes_detected <- nrow(nodes_b |> dplyr::filter((mutation_occured == 0 & variant_received == jj) | (mutation_occured == 1 & variant_after_mutation == jj)) |> dplyr::filter(detection == 1))
-
-          # store the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] <-  n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] + 1
-
-        } else {
-
-          # complete the simulation of a variant subtree
-          completed_variant_subtree <- esRd_complete_variant_subtree(tree_nodes = nodes_b, tree_leaves = leaves, tree_edges = edges_b, variant = jj, limit_size = max_cluster_size, R = R, k = k, mutation_proba = mutation_proba, detection_proba = detection_proba)
-
-          # determine the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          n_nodes_detected <- nrow(completed_variant_subtree[[1]] |> dplyr::filter(detection == 1))
-
-          # store the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] <- n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] + 1
-
-        }
-
-      }
-
-    }
+    # store the size of the identical sequence cluster
+    n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] <- n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] + 1
 
   }
 
-  return(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(frequency != 0))
+  return(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(frequency != 0, size >= 1) |> dplyr::mutate(percentage = frequency / sum(frequency)))
 
 }

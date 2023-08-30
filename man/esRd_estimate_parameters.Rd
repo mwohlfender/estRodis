@@ -12,12 +12,25 @@ esRd_estimate_parameters(
   mean_generation_interval = 5.2,
   prior_number_yearly_mutations = c(14, 0.5),
   prior_testing = c(1, 3, 0.05, 1),
-  sequencing_proba,
+  sequencing_proba = 1,
+  pars = NA,
   chains = 4,
   iter = 2000,
   warmup = floor(iter/2),
   thin = 1,
-  control = NULL
+  seed = sample.int(.Machine$integer.max, 1),
+  init = "random",
+  check_data = TRUE,
+  sample_file = NULL,
+  diagnostic_file = NULL,
+  verbose = FALSE,
+  algorithm = c("NUTS", "HMC", "Fixed_param"),
+  control = NULL,
+  include = TRUE,
+  cores = getOption("mc.cores", 1L),
+  open_progress = interactive() && !isatty(stdout()) && !identical(Sys.getenv("RSTUDIO"),
+    "1"),
+  show_messages = TRUE
 )
 }
 \arguments{
@@ -40,6 +53,40 @@ distribution (normal) of the number of yearly mutations.}
 distribution (scaled beta) of the fraction of cases that are confirmed by a test.}
 
 \item{sequencing_proba}{Sequencing probability.}
+
+\item{pars}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{chains}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{iter}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{warmup}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{thin}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{seed}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{init}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{check_data}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{sample_file}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{diagnostic_file}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{verbose}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{algorithm}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{control}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{include}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{cores}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{open_progress}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
+
+\item{show_messages}{Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.}
 }
 \value{
 An object of S4 class \code{stanfit} containing the fitted results.
@@ -55,16 +102,11 @@ The core of the function \code{esRd_estimate_parameters()} is a mathematical mod
 of the size distribution of sequence clusters, in which viral transmission,
 the mutation of the virus, and incomplete case-detection are integrated.
 Parameters are estimated by a Bayesian inference model implemented in Stan.
+More details can be found in the following paper: ADD REFERENCE
 }
 \examples{
 options(mc.cores = parallel::detectCores())
 esRd_estimate_parameters(
-  c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 28, 29, 32, 33, 34, 35, 36, 83, 103),
-  c(703, 117, 49, 37, 19, 17, 5, 15, 4, 3, 1, 3, 4, 2, 2, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1),
-  c(10,10),
-  c(5,10),
-  5.2,
-  c(14,0.5),
-  c(1,3,0.05,1),
-  1)
+  clusters_size = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 28, 29, 32, 33, 34, 35, 36, 83, 103),
+  clusters_freq = c(703, 117, 49, 37, 19, 17, 5, 15, 4, 3, 1, 3, 4, 2, 2, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1))
 }

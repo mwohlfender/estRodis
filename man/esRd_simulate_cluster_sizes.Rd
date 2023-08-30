@@ -32,11 +32,19 @@ esRd_simulate_cluster_sizes(
 
 \item{sequencing_proba}{Probability that the genome of a confirmed case is sequenced.}
 }
+\value{
+A \code{data.frame} with three columns, \code{size}, \code{frequency} and \code{percentage},
+containing size and frequency of the simulated identical sequence clusters as well as the
+proportion of the identical sequence clusters of each size.
+}
 \description{
 \code{n_clusters} identical sequence clusters of sizes \code{1} to \code{max_cluster_size}
 are simulated. Viral transmission (\code{R} and \code{k}), viral mutation
 (\code{yearly_mutation_rate} and \code{mean_generation_interval}) and case detection
 (\code{testing_proba} and \code{sequencing_proba}) are included in the simulation.
+}
+\details{
+More details can be found in the following paper: ADD REFERENCE
 }
 \examples{
 esRd_simulate_cluster_sizes()

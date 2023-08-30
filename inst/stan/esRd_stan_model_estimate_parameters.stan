@@ -6,7 +6,7 @@ functions {
 
   // see https://ch.mathworks.com/matlabcentral/answers/179597-scale-beta-distribution-in-a-given-interval
   // scaled beta distribution with parameters a and b on interval [p,q]
-  real scaled_beta_v2a_lpdf(real a, real b, real p, real q, real x) {
+  real esRd_stan_scaled_beta_lpdf(real a, real b, real p, real q, real x) {
 
     real result = 0;
 
@@ -22,7 +22,7 @@ functions {
 
 
 
-  int determine_scaling_factor(real x) {
+  int esRd_stan_determine_scaling_factor(real x) {
 
     int result = 0;
 
@@ -47,13 +47,13 @@ functions {
   // as we can not deduce the number of identical sequence clusters of which no case was detected, we need to renormalize the distribution of Y
   // to get the distribution of the size of those identical sequence clusters which we can observe (P(Z=n) = P(Y=n) / P(Y=0))
 
-  real likelihood_stan_log_v2a(int[] clusters_size, int[] clusters_freq, real R, real k, real mutation_proba, real detection_proba) {
+  real esRd_stan_likelihood_log(int[] clusters_size, int[] clusters_freq, real R, real k, real mutation_proba, real detection_proba) {
 
     // here the number of different identical sequence cluster sizes is stored
     int n_clusters_size = num_elements(clusters_size);
 
     // here the upper limit up to which the probability of observing an identical sequence cluster of a certain size is calculated is stored
-    int upper_limit_size_identical_sequence_clusters = max(determine_scaling_factor(2 / detection_proba) * max(clusters_size), max(clusters_size) + 500);
+    int upper_limit_size_identical_sequence_clusters = max(esRd_stan_determine_scaling_factor(2 / detection_proba) * max(clusters_size), max(clusters_size) + 500);
 
     // here a variable needed for storing results at the right place in a list is stored
     int index = 2;
@@ -169,13 +169,13 @@ functions {
   }
 
 
-  real[] distribution_stan_log_v2a(int[] clusters_size, int[] clusters_freq, real R, real k, real mutation_proba, real detection_proba) {
+  real[] esRd_stan_distribution_log(int[] clusters_size, int[] clusters_freq, real R, real k, real mutation_proba, real detection_proba) {
 
     // here the number of different identical sequence cluster sizes is stored
     int n_clusters_size = num_elements(clusters_size);
 
     // here the upper limit up to which the probability of observing an identical sequence cluster of a certain size is calculated is stored
-    int upper_limit_size_identical_sequence_clusters = max(determine_scaling_factor(2 / detection_proba) * max(clusters_size), max(clusters_size) + 500);
+    int upper_limit_size_identical_sequence_clusters = max(esRd_stan_determine_scaling_factor(2 / detection_proba) * max(clusters_size), max(clusters_size) + 500);
 
     // here a variable needed for storing results at the right place in a list is stored
     int index = 2;
@@ -326,10 +326,10 @@ model {
   // mu = prior_number_yearly_mutations[1], sigma = prior_number_yearly_mutations[2]
   number_yearly_mutations ~ normal(prior_number_yearly_mutations[1], prior_number_yearly_mutations[2]);
   // a = prior_testing[1], b = prior_testing[2], p = prior_testing[3], q = prior_testing[4]
-  testing_proba ~ scaled_beta_v2a(prior_testing[1], prior_testing[2], prior_testing[3], prior_testing[4]);
+  testing_proba ~ esRd_stan_scaled_beta(prior_testing[1], prior_testing[2], prior_testing[3], prior_testing[4]);
 
   // likelihood
-  target += likelihood_stan_log_v2a(clusters_size, clusters_freq, R, k, mutation_proba, detection_proba);
+  target += esRd_stan_likelihood_log(clusters_size, clusters_freq, R, k, mutation_proba, detection_proba);
 }
 
 generated quantities {
