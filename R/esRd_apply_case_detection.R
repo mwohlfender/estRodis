@@ -3,7 +3,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr select
 #' @importFrom stats rbinom
-esRd_case_detection_indep_bernoulli <- function(nodes, edges, detection_proba) {
+esRd_apply_case_detection <- function(nodes, edges, detection_proba) {
 
   # make sure that the columns of nodes and edges have the right names
   names(nodes) <- c("node_key", "mutation_occured", "variant_received", "variant_after_mutation")

@@ -65,7 +65,7 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
     # whether a node is detected or not is determined by a Bernoulli distribution with parameter detection_proba
     detection_proba <- testing_proba * sequencing_proba
 
-    tree_detection <- esRd_case_detection_indep_bernoulli(nodes = nodes_a, edges = edges_a, detection_proba = detection_proba)
+    tree_detection <- esRd_apply_case_detection(nodes = nodes_a, edges = edges_a, detection_proba = detection_proba)
 
     nodes_b <- tree_detection[[1]]
     edges_b <- tree_detection[[2]]
@@ -86,7 +86,7 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
     # go through all variants
     for (jj in variants) {
 
-      # check whether still some clusters need to be simulated
+      # check whether some clusters still need to be simulated
       if (sum(n_nodes_identical_sequence_clusters_sim$frequency[-1]) < n_clusters) {
 
         # determine nodes belonging to the identical sequence cluster
@@ -107,10 +107,10 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
           completed_variant_subtree <- esRd_complete_variant_subtree(tree_nodes = nodes_b, tree_leaves = leaves, tree_edges = edges_b, variant = jj, limit_size = max_cluster_size, R = R, k = k, mutation_proba = mutation_proba, detection_proba = detection_proba)
 
           # determine the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          size_completed_variant_subtree <- nrow(completed_variant_subtree[[1]] |> dplyr::filter(detection == 1))
+          n_nodes_detected <- nrow(completed_variant_subtree[[1]] |> dplyr::filter(detection == 1))
 
           # store the size of the identical sequence cluster (random detection with probability detection_proba is applied) corresponding to the variant we are currently looking at
-          n_nodes_identical_sequence_clusters_sim$frequency[min(size_completed_variant_subtree, max_cluster_size) + 1] <- n_nodes_identical_sequence_clusters_sim$frequency[min(size_completed_variant_subtree, max_cluster_size) + 1] + 1
+          n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] <- n_nodes_identical_sequence_clusters_sim$frequency[min(n_nodes_detected, max_cluster_size) + 1] + 1
 
         }
 
