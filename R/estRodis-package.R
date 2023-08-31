@@ -13,6 +13,7 @@
 #' @importFrom dplyr filter
 #' @importFrom dplyr mutate
 #' @importFrom dplyr pull
+#' @importFrom parallelly availableCores
 #' @importFrom rlang .data
 #' @importFrom rstan sampling
 #' @importFrom stats rbinom
