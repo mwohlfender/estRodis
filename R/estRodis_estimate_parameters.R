@@ -47,36 +47,34 @@
 #' @export
 #'
 #' @examples
-#' options(mc.cores = parallel::detectCores())
-#' esRd_estimate_parameters(
-#'   clusters_size = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 28, 29, 32, 33, 34, 35, 36, 83, 103),
-#'   clusters_freq = c(703, 117, 49, 37, 19, 17, 5, 15, 4, 3, 1, 3, 4, 2, 2, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1))
 
-esRd_estimate_parameters <- function(clusters_size,
-                                     clusters_freq,
-                                     prior_r = c(10, 10),
-                                     prior_k = c(5, 10),
-                                     mean_generation_interval  = 5.2,
-                                     prior_number_yearly_mutations = c(14, 0.5),
-                                     prior_testing = c(1, 3, 0.05, 1),
-                                     sequencing_proba = 1,
-                                     pars = NA,
-                                     chains = 4,
-                                     iter = 2000,
-                                     warmup = floor(iter/2),
-                                     thin = 1,
-                                     seed = sample.int(.Machine$integer.max, 1),
-                                     init = 'random',
-                                     check_data = TRUE,
-                                     sample_file = NULL,
-                                     diagnostic_file = NULL,
-                                     verbose = FALSE,
-                                     algorithm = c("NUTS", "HMC", "Fixed_param"),
-                                     control = NULL,
-                                     include = TRUE,
-                                     cores = getOption("mc.cores", 1L),
-                                     open_progress = interactive() && !isatty(stdout()) && !identical(Sys.getenv("RSTUDIO"), "1"),
-                                     show_messages = TRUE) {
+
+
+estRodis_estimate_parameters <- function(clusters_size,
+                                         clusters_freq,
+                                         prior_r = c(10, 10),
+                                         prior_k = c(5, 10),
+                                         mean_generation_interval  = 5.2,
+                                         prior_number_yearly_mutations = c(14, 0.5),
+                                         prior_testing = c(1, 3, 0.05, 1),
+                                         sequencing_proba = 1,
+                                         pars = NA,
+                                         chains = 4,
+                                         iter = 2000,
+                                         warmup = floor(iter/2),
+                                         thin = 1,
+                                         seed = sample.int(.Machine$integer.max, 1),
+                                         init = 'random',
+                                         check_data = TRUE,
+                                         sample_file = NULL,
+                                         diagnostic_file = NULL,
+                                         verbose = FALSE,
+                                         algorithm = c("NUTS", "HMC", "Fixed_param"),
+                                         control = NULL,
+                                         include = TRUE,
+                                         cores = getOption("mc.cores", 1L),
+                                         open_progress = interactive() && !isatty(stdout()) && !identical(Sys.getenv("RSTUDIO"), "1"),
+                                         show_messages = TRUE) {
 
   standata <- list(M = length(clusters_size),
                    clusters_size = clusters_size,
@@ -88,7 +86,7 @@ esRd_estimate_parameters <- function(clusters_size,
                    prior_testing = prior_testing,
                    sequencing_proba = sequencing_proba)
 
-  out <- rstan::sampling(object = stanmodels$stan_model_R_k_testing_v1_a,
+  out <- rstan::sampling(object = stanmodels$estRodis_stan_model_estimate_parameters,
                          data = standata,
                          pars = pars,
                          chains = chains,
@@ -111,4 +109,13 @@ esRd_estimate_parameters <- function(clusters_size,
   return(out)
 
 }
+
+
+# options(mc.cores = parallel::detectCores())
+# esRd_estimate_parameters(
+#   clusters_size = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17,
+#                     18, 20, 22, 23, 28, 29, 32, 33, 34, 35, 36, 83, 103),
+#   clusters_freq = c(703, 117, 49, 37, 19, 17, 5, 15, 4, 3, 1, 3, 4, 2, 2, 1,
+#                     3, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1))
+
 
