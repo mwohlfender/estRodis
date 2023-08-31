@@ -2,12 +2,12 @@
 
 #include <Rcpp.h>
 using namespace Rcpp ;
-#include "stanExports_estRodis_stan_model_estimate_parameters.h"
+#include "stanExports_stan_model_R_k_testing_v1_a.h"
 
-RCPP_MODULE(stan_fit4estRodis_stan_model_estimate_parameters_mod) {
+RCPP_MODULE(stan_fit4stan_model_R_k_testing_v1_a_mod) {
 
 
-    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("rstantools_model_estRodis_stan_model_estimate_parameters")
+    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("rstantools_model_stan_model_R_k_testing_v1_a")
 
     .constructor<SEXP,SEXP,SEXP>()
 

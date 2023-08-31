@@ -30,14 +30,14 @@
 #' @importFrom dplyr pull
 #' @importFrom stats rbinom
 #' @importFrom stats rnbinom
-estRodis_simulate_cluster_sizes <- function(n_clusters = 1000,
-                                            max_cluster_size = 2500,
-                                            R = 1.0,
-                                            k = 0.3,
-                                            yearly_mutation_rate = 14,
-                                            mean_generation_interval = 5.2,
-                                            testing_proba = 0.6,
-                                            sequencing_proba = 0.4) {
+esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
+                                        max_cluster_size = 2500,
+                                        R = 1.0,
+                                        k = 0.3,
+                                        yearly_mutation_rate = 14,
+                                        mean_generation_interval = 5.2,
+                                        testing_proba = 0.6,
+                                        sequencing_proba = 0.4) {
 
   # calculate mutation probability
   mutation_proba <- 1 - exp(- yearly_mutation_rate / 365.25 * mean_generation_interval)

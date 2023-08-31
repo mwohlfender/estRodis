@@ -1,10 +1,11 @@
 Package: estRodis
-Title: This package estimates parameters.
+Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("Martin", "Wohlfender", , "martin.wohlfender@unibe.ch", role = c("aut", "cre"))
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: `use_gpl3_license()`
+License: MIT + file LICENCE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
@@ -12,11 +13,12 @@ Biarch: true
 Depends: 
     R (>= 3.4.0)
 Imports: 
+    dplyr,
     methods,
     Rcpp (>= 0.12.0),
     RcppParallel (>= 5.0.1),
     rstan (>= 2.18.1),
-    rstantools (>= 2.3.1.1)
+    rstantools (>= 2.3.1)
 LinkingTo: 
     BH (>= 1.66.0),
     Rcpp (>= 0.12.0),
