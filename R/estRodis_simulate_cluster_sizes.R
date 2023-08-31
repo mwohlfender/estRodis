@@ -23,21 +23,16 @@
 #'
 #' @export
 #'
-#' @examples esRd_simulate_cluster_sizes()
-#'
-#' @importFrom dplyr filter
-#' @importFrom dplyr mutate
-#' @importFrom dplyr pull
-#' @importFrom stats rbinom
-#' @importFrom stats rnbinom
-esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
-                                        max_cluster_size = 2500,
-                                        R = 1.0,
-                                        k = 0.3,
-                                        yearly_mutation_rate = 14,
-                                        mean_generation_interval = 5.2,
-                                        testing_proba = 0.6,
-                                        sequencing_proba = 0.4) {
+#' @examples estRodis_simulate_cluster_sizes()
+
+estRodis_simulate_cluster_sizes <- function(n_clusters = 1000,
+                                            max_cluster_size = 2500,
+                                            R = 1.0,
+                                            k = 0.3,
+                                            yearly_mutation_rate = 14,
+                                            mean_generation_interval = 5.2,
+                                            testing_proba = 0.6,
+                                            sequencing_proba = 0.4) {
 
   # calculate mutation probability
   mutation_proba <- 1 - exp(- yearly_mutation_rate / 365.25 * mean_generation_interval)
@@ -51,7 +46,7 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
 
   # simulate identical sequence clusters until at least n_clusters identical sequence clusters have been created
   # convention: the size of an identical sequence cluster is the number of detected nodes that have transmitted the respective variant to their (direct) offspring (might have zero offspring)
-  while (sum(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(size >= 1) |> dplyr::pull(frequency)) < n_clusters) {
+  while (sum(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(.data$size >= 1) |> dplyr::pull(.data$frequency)) < n_clusters) {
 
     # create initial case and determine whether it is detected or not
     n_free_leaves <- 1
@@ -81,6 +76,6 @@ esRd_simulate_cluster_sizes <- function(n_clusters = 1000,
 
   }
 
-  return(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(frequency != 0, size >= 1) |> dplyr::mutate(percentage = frequency / sum(frequency)))
+  return(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(.data$frequency != 0, .data$size >= 1) |> dplyr::mutate(percentage = .data$frequency / sum(.data$frequency)))
 
 }

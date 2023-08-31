@@ -1,11 +1,11 @@
 Package: estRodis
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Estimation of transmission dynamics parameters
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: MIT + file LICENCE
+    person("Martin", "Wohlfender", ,"martin.wohlfender@unibe.ch", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5252-0484"))
+Description: The estRodis package estimates parameters linked to transmission dynamics of SARS-CoV-2 from the size distribution of identical sequence clusters.
+Version: 0.0.0.9000
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
@@ -14,6 +14,7 @@ Depends:
     R (>= 3.4.0)
 Imports: 
     dplyr,
+	rlang,
     methods,
     Rcpp (>= 0.12.0),
     RcppParallel (>= 5.0.1),
