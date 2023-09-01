@@ -12,10 +12,12 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 
-RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_1_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_2_mod();
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_mod, 0},
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_1_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_1_mod, 0},
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_2_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_2_mod, 0},
     {NULL, NULL, 0}
 };
 
