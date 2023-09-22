@@ -2,6 +2,7 @@
 
 export(estRodis_estimate_parameters_1)
 export(estRodis_estimate_parameters_2)
+export(estRodis_plot_transmission_chain)
 export(estRodis_scaled_beta_distribution_pdf)
 export(estRodis_simulate_cluster_sizes)
 export(estRodis_simulate_transmission_chain)
