@@ -41,9 +41,6 @@ estRodis_plot_transmission_chain <- function(nodes, edges, max_generation, colou
     # add column "edge.id"
     edges <- edges |> dplyr::mutate(edge.id = 1:nrow(edges))
 
-    # # add column "in_same_cluster": 1 if both nodes of an edge belong to the same identical sequence cluster, 0 if not
-    # edges <- edges |> dplyr::mutate(in_same_cluster = as.numeric(from_variant == to_variant))
-
   }
 
   # create plot
