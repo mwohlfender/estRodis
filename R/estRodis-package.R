@@ -10,6 +10,8 @@
 #' @import Rcpp
 #' @import RcppParallel
 #' @import rstantools
+#' @importFrom cowplot get_legend
+#' @importFrom cowplot plot_grid
 #' @importFrom dplyr filter
 #' @importFrom dplyr left_join
 #' @importFrom dplyr mutate
@@ -26,6 +28,7 @@
 #' @importFrom ggraph geom_edge_link
 #' @importFrom ggraph geom_node_point
 #' @importFrom ggraph scale_edge_color_manual
+#' @importFrom paletteer paletteer_c
 #' @importFrom parallelly availableCores
 #' @importFrom rlang .data
 #' @importFrom rstan sampling
