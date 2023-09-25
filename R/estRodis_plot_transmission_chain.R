@@ -1,6 +1,6 @@
 
 
-#' Plot transmission chain
+#' @title Plot transmission chain
 #'
 #' @description A plot of a transmission chain is created.
 #'

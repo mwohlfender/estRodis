@@ -1,26 +1,4 @@
 
-# transmission_chain <- estRodis_simulate_transmission_chain()
-# nrow(transmission_chain$edges)
-
-# nodes <- transmission_chain$nodes
-# edges <- transmission_chain$edges
-# max_generation <- 6
-
-# style_plot <- "fixed"
-# style_legend_clusters <- "fixed"
-
-# style_plot <- "fixed"
-# style_legend_clusters <- "flexible"
-
-# style_plot <- "flexible"
-# style_legend_clusters <- "fixed"
-
-# style_plot <- "flexible"
-# style_legend_clusters <- "flexible"
-
-# test_plot <- estRodis_plot_transmission_chain_mutation(nodes, edges, max_generation, style_plot, style_legend_clusters)
-
-# test_plot_default <- estRodis_plot_transmission_chain_mutation(nodes, edges)
 
 # Warning messages:
 # 1: Using size for a discrete variable is not advised.
@@ -30,8 +8,9 @@
 # Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 
 
-
-#' Plot transmission chain with mutation
+#' @title Plot transmission chain with mutation
+#'
+#' @description A plot of a transmission chain including the mutation process is created.
 #'
 #' @param transmission_chain_nodes Data frame containing information about the nodes of the transmission chain
 #' @param transmission_chain_edges Data frame containing information about the edges of the transmission chain
@@ -39,8 +18,52 @@
 #' @param style_plot Positioning of transmission chain on canvas
 #' @param style_legend_clusters Level of detail of the legend of the identical sequence clusters
 #'
+#' @details The data frame `transmission_chain_nodes` has to contain at least the columns `node_key` (id of node),
+#' `generation` (generation of nodes), `mutation_occurred` (whether or not a mutation occurred),
+#' `variant_received` (variant received from parent node),
+#' `variant_after_mutation` (variant present at node in case a mutation occurs) and
+#' `current_variant` (variant of virus present at node at time of detection).
+#'
+#' The data frame `transmission_chain_edges` has to contain at least the columns
+#' `from` (index of infector node in `transmission_chain_nodes`),
+#' `to` (index of infectee node in `transmission_chain_nodes`),
+#'  `generation` (generation of infectee node),
+#' `from_variant` (variant of virus present at infector node at time of detection),
+#' `to_variant` (variant of virus present at infectee node at time of detection), and
+#' `variant_transmitted` (variant transmitted from infector to infectee).
+#'
+#' Using the inputs `max_generation`, `style_plot` and `style_legend_clusters`,
+#' the graphical presentation of the transmission chain can be influenced.
+#'
+#' `max_generation` determines the last generation of nodes and edges
+#' that are included into the plot.
+#'
+#' Setting `style_plot = fixed`, nodes and edges up to (and including)
+#' generation `max_generation` are drawn,
+#' while nodes and edges of later generations are made invisible.
+#'
+#' Setting `style_plot = flexible`, nodes and edges up to (and including)
+#' generation `max_generation` are drawn,
+#' while nodes and edges of later generations are cut away.
+#'
+#' Setting `style_legend_clusters = fixed`, the legend of the
+#' identical sequence clusters includes all identical sequence clusters
+#' of the transmission chain defined by nodes and edges regardless of their generation.
+#'
+#' Setting `style_legend_clusters = flexible`, the legend of the
+#' identical sequence clusters only includes all identical sequence clusters
+#' of the transmission chain defined by nodes and edges up to (and including)
+#' generation `max_generation`.
+#'
 #' @return Plot of the transmission chain defined by nodes, edges and max_generation in the form of a cowplot plot_grid object.
 #' @export
+#' @examples transmission_chain <- estRodis_simulate_transmission_chain()
+#' transmission_chain_nodes <- transmission_chain$nodes
+#' transmission_chain_edges <- transmission_chain$edges
+#' plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
+#' transmission_chain_nodes = transmission_chain_nodes,
+#' transmission_chain_edges = transmission_chain_edges,
+#' max_generation = min(max(nodes$generation), 5))
 estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
                                                       transmission_chain_edges,
                                                       max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),

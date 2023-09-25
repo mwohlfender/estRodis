@@ -27,5 +27,43 @@ estRodis_plot_transmission_chain_mutation(
 Plot of the transmission chain defined by nodes, edges and max_generation in the form of a cowplot plot_grid object.
 }
 \description{
-Plot transmission chain with mutation
+A plot of a transmission chain including the mutation process is created.
+}
+\details{
+The data frame \code{transmission_chain_nodes} has to contain at least the columns \code{node_key} (id of node),
+\code{generation} (generation of nodes), \code{mutation_occurred} (whether or not a mutation occurred),
+\code{variant_received} (variant received from parent node),
+\code{variant_after_mutation} (variant present at node in case a mutation occurs) and
+\code{current_variant} (variant of virus present at node at time of detection).
+
+The data frame \code{transmission_chain_edges} has to contain at least the columns
+\code{from} (index of infector node in \code{transmission_chain_nodes}),
+\code{to} (index of infectee node in \code{transmission_chain_nodes}),
+\code{generation} (generation of infectee node),
+\code{from_variant} (variant of virus present at infector node at time of detection),
+\code{to_variant} (variant of virus present at infectee node at time of detection), and
+\code{variant_transmitted} (variant transmitted from infector to infectee).
+
+Using the inputs \code{max_generation}, \code{style_plot} and \code{style_legend_clusters},
+the graphical presentation of the transmission chain can be influenced.
+
+\code{max_generation} determines the last generation of nodes and edges
+that are included into the plot.
+
+Setting \code{style_plot = fixed}, nodes and edges up to (and including)
+generation \code{max_generation} are drawn,
+while nodes and edges of later generations are made invisible.
+
+Setting \code{style_plot = flexible}, nodes and edges up to (and including)
+generation \code{max_generation} are drawn,
+while nodes and edges of later generations are cut away.
+
+Setting \code{style_legend_clusters = fixed}, the legend of the
+identical sequence clusters includes all identical sequence clusters
+of the transmission chain defined by nodes and edges regardless of their generation.
+
+Setting \code{style_legend_clusters = flexible}, the legend of the
+identical sequence clusters only includes all identical sequence clusters
+of the transmission chain defined by nodes and edges up to (and including)
+generation \code{max_generation}.
 }
