@@ -5,18 +5,19 @@
 \title{Plot transmission chain}
 \usage{
 estRodis_plot_transmission_chain(
-  nodes,
-  edges,
-  max_generation,
-  colour_nodes_edges = "navyblue"
+  transmission_chain_nodes,
+  transmission_chain_edges,
+  max_generation = max(dplyr::pull(transmission_chain_nodes, "generation")),
+  colour_nodes_edges = "navyblue",
+  style_plot = "flexible"
 )
 }
 \arguments{
-\item{nodes}{Data frame containing information about the nodes of the transmission chain}
+\item{transmission_chain_nodes}{Data frame containing information about the nodes of the transmission chain}
 
-\item{edges}{Data frame containing information about the edges of the transmission chain}
+\item{transmission_chain_edges}{Data frame containing information about the edges of the transmission chain}
 
-\item{max_generation}{Maximum generation of nodes and edges that should be included into the plot}
+\item{max_generation}{Maximum generation of nodes and edges that are included into the plot}
 
 \item{colour_nodes_edges}{Colour for nodes and edges}
 }
@@ -27,16 +28,20 @@ Plot of the transmission chain defined by nodes, edges and max_generation in the
 A plot of a transmission chain is created.
 }
 \details{
-The data frame \code{nodes} has to contain at least the columns \code{node_key} (id of node)
+The data frame \code{transmission_chain_nodes} has to contain at least the columns \code{node_key} (id of node)
 and \code{generation} (generation of nodes).
 
-The data frame \code{edges} has to contain at least the columns \code{from} (index of infector node in \code{nodes}),
-\code{to} (index of infectee node in \code{nodes}) and \code{generation} (generation of infectee node).
+The data frame \code{transmission_chain_edges} has to contain at least the columns \code{from}
+(index of infector node in \code{transmission_chain_nodes}),
+\code{to} (index of infectee node in \code{transmission_chain_nodes})
+and \code{generation} (generation of infectee node).
 }
 \examples{
 transmission_chain <- estRodis_simulate_transmission_chain()
-nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
-edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
+transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
+transmission_chain_edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
 plot_transmission_chain <- estRodis_plot_transmission_chain(
-nodes = nodes, edges = edges, max_generation = min(max(nodes$generation), 5))
+transmission_chain_nodes = transmission_chain_nodes,
+transmission_chain_edges = transmission_chain_edges,
+max_generation = min(max(nodes$generation), 5))
 }

@@ -14,7 +14,7 @@
 #'
 #' @param transmission_chain_nodes Data frame containing information about the nodes of the transmission chain
 #' @param transmission_chain_edges Data frame containing information about the edges of the transmission chain
-#' @param max_generation Maximum generation of nodes and edges that should be included into the plot
+#' @param max_generation Maximum generation of nodes and edges that are included into the plot
 #' @param style_plot Positioning of transmission chain on canvas
 #' @param style_legend_clusters Level of detail of the legend of the identical sequence clusters
 #'
@@ -63,7 +63,7 @@
 #' plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
 #' transmission_chain_nodes = transmission_chain_nodes,
 #' transmission_chain_edges = transmission_chain_edges,
-#' max_generation = min(max(nodes$generation), 5))
+#' max_generation = min(max(transmission_chain_nodes$generation), 5))
 estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
                                                       transmission_chain_edges,
                                                       max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),

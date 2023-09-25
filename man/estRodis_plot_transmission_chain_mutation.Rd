@@ -17,7 +17,7 @@ estRodis_plot_transmission_chain_mutation(
 
 \item{transmission_chain_edges}{Data frame containing information about the edges of the transmission chain}
 
-\item{max_generation}{Maximum generation of nodes and edges that should be included into the plot}
+\item{max_generation}{Maximum generation of nodes and edges that are included into the plot}
 
 \item{style_plot}{Positioning of transmission chain on canvas}
 
@@ -66,4 +66,13 @@ Setting \code{style_legend_clusters = flexible}, the legend of the
 identical sequence clusters only includes all identical sequence clusters
 of the transmission chain defined by nodes and edges up to (and including)
 generation \code{max_generation}.
+}
+\examples{
+transmission_chain <- estRodis_simulate_transmission_chain()
+transmission_chain_nodes <- transmission_chain$nodes
+transmission_chain_edges <- transmission_chain$edges
+plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
+transmission_chain_nodes = transmission_chain_nodes,
+transmission_chain_edges = transmission_chain_edges,
+max_generation = min(max(transmission_chain_nodes$generation), 5))
 }
