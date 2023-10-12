@@ -67,12 +67,3 @@ identical sequence clusters only includes all identical sequence clusters
 of the transmission chain defined by nodes and edges up to (and including)
 generation \code{max_generation}.
 }
-\examples{
-transmission_chain <- estRodis_simulate_transmission_chain()
-transmission_chain_nodes <- transmission_chain$nodes
-transmission_chain_edges <- transmission_chain$edges
-plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
-transmission_chain_nodes = transmission_chain_nodes,
-transmission_chain_edges = transmission_chain_edges,
-max_generation = min(max(transmission_chain_nodes$generation), 5))
-}

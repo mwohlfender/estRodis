@@ -22,8 +22,8 @@ A list of real numbers.
 }
 \description{
 \code{estRodis_scaled_beta_distribution_pdf} evaluates the probability density function of the scaled Beta distribution that is
-determined by the parameters \code{alpha} and \code{beta} and defined on the interval  \code{p}, \code{q} at \code{x}.
+determined by the parameters \code{alpha} and \code{beta} and defined on the open interval  \code{p}, \code{q} at \code{x}.
 }
 \details{
-Values of \code{x} outside the interval \code{p}, \code{q} are evaluated to \code{0}.
+Values of \code{x} outside the open interval \code{p}, \code{q} are evaluated to \code{0}.
 }

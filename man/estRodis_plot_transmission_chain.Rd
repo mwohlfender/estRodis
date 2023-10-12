@@ -20,6 +20,8 @@ estRodis_plot_transmission_chain(
 \item{max_generation}{Maximum generation of nodes and edges that are included into the plot}
 
 \item{colour_nodes_edges}{Colour for nodes and edges}
+
+\item{style_plot}{Positioning of transmission chain on canvas}
 }
 \value{
 Plot of the transmission chain defined by nodes, edges and max_generation in the form of a ggplot2 object.
@@ -35,13 +37,18 @@ The data frame \code{transmission_chain_edges} has to contain at least the colum
 (index of infector node in \code{transmission_chain_nodes}),
 \code{to} (index of infectee node in \code{transmission_chain_nodes})
 and \code{generation} (generation of infectee node).
-}
-\examples{
-transmission_chain <- estRodis_simulate_transmission_chain()
-transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
-transmission_chain_edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
-plot_transmission_chain <- estRodis_plot_transmission_chain(
-transmission_chain_nodes = transmission_chain_nodes,
-transmission_chain_edges = transmission_chain_edges,
-max_generation = min(max(nodes$generation), 5))
+
+Using the inputs \code{max_generation} and \code{style_plot},
+the graphical presentation of the transmission chain can be influenced.
+
+\code{max_generation} determines the last generation of nodes and edges
+that are included into the plot.
+
+Setting \code{style_plot = fixed}, nodes and edges up to (and including)
+generation \code{max_generation} are drawn,
+while nodes and edges of later generations are made invisible.
+
+Setting \code{style_plot = flexible}, nodes and edges up to (and including)
+generation \code{max_generation} are drawn,
+while nodes and edges of later generations are cut away.
 }

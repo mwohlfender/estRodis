@@ -35,6 +35,7 @@
 #' @export
 #'
 #' @examples estRodis_simulate_transmission_chain()
+
 estRodis_simulate_transmission_chain <- function(max_chain_size = 100,
                                                  R = 1.0,
                                                  k = 0.3,

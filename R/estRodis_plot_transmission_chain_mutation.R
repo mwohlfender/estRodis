@@ -1,12 +1,10 @@
 
-
 # Warning messages:
 # 1: Using size for a discrete variable is not advised.
 # 2: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
 # ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
 # This warning is displayed once every 8 hours.
 # Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
-
 
 #' @title Plot transmission chain with mutation
 #'
@@ -27,7 +25,7 @@
 #' The data frame `transmission_chain_edges` has to contain at least the columns
 #' `from` (index of infector node in `transmission_chain_nodes`),
 #' `to` (index of infectee node in `transmission_chain_nodes`),
-#'  `generation` (generation of infectee node),
+#' `generation` (generation of infectee node),
 #' `from_variant` (variant of virus present at infector node at time of detection),
 #' `to_variant` (variant of virus present at infectee node at time of detection), and
 #' `variant_transmitted` (variant transmitted from infector to infectee).
@@ -57,18 +55,20 @@
 #'
 #' @return Plot of the transmission chain defined by nodes, edges and max_generation in the form of a cowplot plot_grid object.
 #' @export
-#' @examples transmission_chain <- estRodis_simulate_transmission_chain()
-#' transmission_chain_nodes <- transmission_chain$nodes
-#' transmission_chain_edges <- transmission_chain$edges
-#' plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
-#' transmission_chain_nodes = transmission_chain_nodes,
-#' transmission_chain_edges = transmission_chain_edges,
-#' max_generation = min(max(transmission_chain_nodes$generation), 5))
+
 estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
                                                       transmission_chain_edges,
                                                       max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),
                                                       style_plot = "flexible",
                                                       style_legend_clusters = "flexible") {
+
+  # #' @examples transmission_chain <- estRodis_simulate_transmission_chain()
+  # #' transmission_chain_nodes <- transmission_chain$nodes
+  # #' transmission_chain_edges <- transmission_chain$edges
+  # #' plot_transmission_chain <- estRodis_plot_transmission_chain_mutation(
+  # #' transmission_chain_nodes = transmission_chain_nodes,
+  # #' transmission_chain_edges = transmission_chain_edges,
+  # #' max_generation = min(max(transmission_chain_nodes$generation), 5))
 
   # determine nodes and edges that will be added to the plot
   if (style_plot == "fixed") {

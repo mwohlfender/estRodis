@@ -1,5 +1,4 @@
 
-
 #' @title Plot transmission chain
 #'
 #' @description A plot of a transmission chain is created.
@@ -8,6 +7,7 @@
 #' @param transmission_chain_edges Data frame containing information about the edges of the transmission chain
 #' @param max_generation Maximum generation of nodes and edges that are included into the plot
 #' @param colour_nodes_edges Colour for nodes and edges
+#' @param style_plot Positioning of transmission chain on canvas
 #'
 #' @details The data frame `transmission_chain_nodes` has to contain at least the columns `node_key` (id of node)
 #' and `generation` (generation of nodes).
@@ -17,21 +17,36 @@
 #' `to` (index of infectee node in `transmission_chain_nodes`)
 #' and `generation` (generation of infectee node).
 #'
+#' Using the inputs `max_generation` and `style_plot`,
+#' the graphical presentation of the transmission chain can be influenced.
+#'
+#' `max_generation` determines the last generation of nodes and edges
+#' that are included into the plot.
+#'
+#' Setting `style_plot = fixed`, nodes and edges up to (and including)
+#' generation `max_generation` are drawn,
+#' while nodes and edges of later generations are made invisible.
+#'
+#' Setting `style_plot = flexible`, nodes and edges up to (and including)
+#' generation `max_generation` are drawn,
+#' while nodes and edges of later generations are cut away.
+#'
 #' @return Plot of the transmission chain defined by nodes, edges and max_generation in the form of a ggplot2 object.
 #' @export
-#'
-#' @examples transmission_chain <- estRodis_simulate_transmission_chain()
-#' transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
-#' transmission_chain_edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
-#' plot_transmission_chain <- estRodis_plot_transmission_chain(
-#' transmission_chain_nodes = transmission_chain_nodes,
-#' transmission_chain_edges = transmission_chain_edges,
-#' max_generation = min(max(nodes$generation), 5))
+
 estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
                                              transmission_chain_edges,
                                              max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),
                                              colour_nodes_edges = "navyblue",
                                              style_plot = "flexible") {
+
+  # #' @examples transmission_chain <- estRodis_simulate_transmission_chain()
+  # #' transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
+  # #' transmission_chain_edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
+  # #' plot_transmission_chain <- estRodis_plot_transmission_chain(
+  # #' transmission_chain_nodes = transmission_chain_nodes,
+  # #' transmission_chain_edges = transmission_chain_edges,
+  # #' max_generation = min(max(nodes$generation), 5))
 
   # determine nodes and edges that will be added to the plot
   if (style_plot == "fixed") {

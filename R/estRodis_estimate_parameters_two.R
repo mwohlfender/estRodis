@@ -1,7 +1,7 @@
 
-#' @title Estimate parameters.
+#' @title Estimate parameters using Model 2
 #'
-#' @description `estRodis_estimate_parameters_2()` estimates the effective reproduction number,
+#' @description `estRodis_estimate_parameters_two()` estimates the effective reproduction number,
 #' the dispersion parameter, the probability of a case undergoing a mutation and
 #' the probability that a case is confirmed by a test based on the size distribution
 #' of identical sequence clusters.
@@ -35,7 +35,7 @@
 #' @param open_progress Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.
 #' @param show_messages Parameter that is passed on to rstan::sampling, see manual of rstan::sampling for more details.
 #'
-#' @details The core of the function `estRodis_estimate_parameters_2()` is a mathematical model
+#' @details The core of the function `estRodis_estimate_parameters_two()` is a mathematical model
 #' of the size distribution of sequence clusters, in which viral transmission,
 #' the mutation of the virus, and incomplete case-detection are integrated.
 #' Parameters are estimated by a Bayesian inference model implemented in Stan.
@@ -55,37 +55,37 @@
 #'
 #' options(mc.cores = parallelly::availableCores())
 #'
-#' estRodis_estimate_parameters_2(
+#' estRodis_estimate_parameters_two(
 #'   clusters_size = simulated_clusters$size,
 #'   clusters_freq = simulated_clusters$frequency,
 #'   testing_proba = 0.55,
 #'   sequencing_proba = 0.44)
 
-estRodis_estimate_parameters_2 <- function(clusters_size,
-                                           clusters_freq,
-                                           prior_r = c(10, 10),
-                                           prior_k = c(5, 10),
-                                           mean_generation_interval  = 5.2,
-                                           prior_number_yearly_mutations = c(14, 0.5),
-                                           testing_proba = 1,
-                                           sequencing_proba = 1,
-                                           pars = NA,
-                                           chains = 4,
-                                           iter = 2000,
-                                           warmup = floor(iter/2),
-                                           thin = 1,
-                                           seed = sample.int(.Machine$integer.max, 1),
-                                           init = 'random',
-                                           check_data = TRUE,
-                                           sample_file = NULL,
-                                           diagnostic_file = NULL,
-                                           verbose = FALSE,
-                                           algorithm = c("NUTS", "HMC", "Fixed_param"),
-                                           control = NULL,
-                                           include = TRUE,
-                                           cores = getOption("mc.cores", 1L),
-                                           open_progress = interactive() && !isatty(stdout()) && !identical(Sys.getenv("RSTUDIO"), "1"),
-                                           show_messages = TRUE) {
+estRodis_estimate_parameters_two <- function(clusters_size,
+                                             clusters_freq,
+                                             prior_r = c(10, 10),
+                                             prior_k = c(5, 10),
+                                             mean_generation_interval  = 5.2,
+                                             prior_number_yearly_mutations = c(14, 0.5),
+                                             testing_proba = 1,
+                                             sequencing_proba = 1,
+                                             pars = NA,
+                                             chains = 4,
+                                             iter = 2000,
+                                             warmup = floor(iter/2),
+                                             thin = 1,
+                                             seed = sample.int(.Machine$integer.max, 1),
+                                             init = 'random',
+                                             check_data = TRUE,
+                                             sample_file = NULL,
+                                             diagnostic_file = NULL,
+                                             verbose = FALSE,
+                                             algorithm = c("NUTS", "HMC", "Fixed_param"),
+                                             control = NULL,
+                                             include = TRUE,
+                                             cores = getOption("mc.cores", 1L),
+                                             open_progress = interactive() && !isatty(stdout()) && !identical(Sys.getenv("RSTUDIO"), "1"),
+                                             show_messages = TRUE) {
 
   standata <- list(M = length(clusters_size),
                    clusters_size = clusters_size,
@@ -97,7 +97,7 @@ estRodis_estimate_parameters_2 <- function(clusters_size,
                    testing_proba = testing_proba,
                    sequencing_proba = sequencing_proba)
 
-  out <- rstan::sampling(object = stanmodels$estRodis_stan_model_estimate_parameters_2,
+  out <- rstan::sampling(object = stanmodels$estRodis_stan_model_estimate_parameters_two,
                          data = standata,
                          pars = pars,
                          chains = chains,
