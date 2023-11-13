@@ -94,8 +94,7 @@ estRodis_estimate_parameters_two <- function(clusters_size,
                    prior_k = prior_k,
                    mean_generation_interval = mean_generation_interval,
                    prior_number_yearly_mutations = prior_number_yearly_mutations,
-                   testing_proba = testing_proba,
-                   sequencing_proba = sequencing_proba)
+                   detection_proba = testing_proba * sequencing_proba)
 
   out <- rstan::sampling(object = stanmodels$estRodis_stan_model_estimate_parameters_two,
                          data = standata,

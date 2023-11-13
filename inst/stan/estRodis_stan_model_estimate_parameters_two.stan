@@ -19,10 +19,8 @@ data {
   real mean_generation_interval;
   // mean and standard deviation for the prior distribution (normal) of the number of yearly mutations
   real prior_number_yearly_mutations[2];
-  // probability that a case gets confirmed by a test
-  real testing_proba;
-  // probability that a case confirmed by a test gets sequenced
-  real sequencing_proba;
+  // probability that a case gets confirmed by a test and gets sequenced
+  real detection_proba;
 }
 parameters {
   real < lower = 0 > R;
@@ -32,7 +30,6 @@ parameters {
 
 transformed parameters {
   real mutation_proba = 1 - exp(- number_yearly_mutations / 365.25 * mean_generation_interval);
-  real detection_proba = testing_proba * sequencing_proba;
 }
 
 model {
