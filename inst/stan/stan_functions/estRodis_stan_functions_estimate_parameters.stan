@@ -37,6 +37,7 @@ functions {
   }
 
 
+
   // random variable X: size of identical sequence cluster (1, 2, 3, ...)
   // random variable Y: number of detected cases of an identical sequence cluster (0, 1, 2, ...)
   // random variable Z: number of observed cases of an identical sequence cluster (1, 2, ...)
@@ -97,7 +98,7 @@ functions {
 
     if (detection_proba == 1.0) {
 
-      for (ii in 1:n_clusters_size) distribution_size_ident_seq_tree_detection[ii] = distribution_size_ident_seq_tree[ii];
+      for (ii in 1:n_clusters_size) distribution_size_ident_seq_tree_detection[ii] = distribution_size_ident_seq_tree[clusters_size[ii]];
 
     } else {
 

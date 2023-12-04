@@ -75,26 +75,24 @@ using stan::math::pow;
 stan::math::profile_map profiles__;
 static int current_statement__= 0;
 static const std::vector<string> locations_array__ = {" (found before start of program)",
+                                                      " (in 'string', line 175, column 2 to column 23)",
                                                       " (in 'string', line 176, column 2 to column 23)",
-                                                      " (in 'string', line 177, column 2 to column 23)",
-                                                      " (in 'string', line 178, column 2 to column 45)",
-                                                      " (in 'string', line 181, column 2 to column 95)",
-                                                      " (in 'string', line 182, column 2 to column 58)",
+                                                      " (in 'string', line 177, column 2 to column 45)",
+                                                      " (in 'string', line 180, column 2 to column 95)",
+                                                      " (in 'string', line 185, column 2 to column 36)",
                                                       " (in 'string', line 187, column 2 to column 36)",
-                                                      " (in 'string', line 189, column 2 to column 36)",
-                                                      " (in 'string', line 191, column 2 to column 103)",
-                                                      " (in 'string', line 193, column 2 to column 110)",
-                                                      " (in 'string', line 157, column 2 to column 22)",
-                                                      " (in 'string', line 159, column 20 to column 21)",
-                                                      " (in 'string', line 159, column 2 to column 23)",
-                                                      " (in 'string', line 161, column 20 to column 21)",
-                                                      " (in 'string', line 161, column 2 to column 23)",
-                                                      " (in 'string', line 163, column 2 to column 18)",
-                                                      " (in 'string', line 165, column 2 to column 18)",
-                                                      " (in 'string', line 167, column 2 to column 32)",
-                                                      " (in 'string', line 169, column 2 to column 40)",
-                                                      " (in 'string', line 171, column 2 to column 21)",
-                                                      " (in 'string', line 173, column 2 to column 24)",
+                                                      " (in 'string', line 189, column 2 to column 103)",
+                                                      " (in 'string', line 191, column 2 to column 110)",
+                                                      " (in 'string', line 158, column 2 to column 22)",
+                                                      " (in 'string', line 160, column 20 to column 21)",
+                                                      " (in 'string', line 160, column 2 to column 23)",
+                                                      " (in 'string', line 162, column 20 to column 21)",
+                                                      " (in 'string', line 162, column 2 to column 23)",
+                                                      " (in 'string', line 164, column 2 to column 18)",
+                                                      " (in 'string', line 166, column 2 to column 18)",
+                                                      " (in 'string', line 168, column 2 to column 32)",
+                                                      " (in 'string', line 170, column 2 to column 40)",
+                                                      " (in 'string', line 172, column 2 to column 23)",
                                                       " (in 'string', line 10, column 4 to column 20)",
                                                       " (in 'string', line 14, column 6 to column 133)",
                                                       " (in 'string', line 12, column 27 to line 16, column 5)",
@@ -110,55 +108,55 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 28, column 4 to line 36, column 5)",
                                                       " (in 'string', line 38, column 4 to column 19)",
                                                       " (in 'string', line 24, column 39 to line 40, column 3)",
-                                                      " (in 'string', line 52, column 4 to column 54)",
-                                                      " (in 'string', line 55, column 4 to column 153)",
-                                                      " (in 'string', line 58, column 4 to column 18)",
-                                                      " (in 'string', line 61, column 4 to column 55)",
-                                                      " (in 'string', line 64, column 4 to column 65)",
-                                                      " (in 'string', line 67, column 4 to column 29)",
-                                                      " (in 'string', line 70, column 4 to column 33)",
-                                                      " (in 'string', line 73, column 4 to column 58)",
-                                                      " (in 'string', line 76, column 18 to column 62)",
-                                                      " (in 'string', line 76, column 4 to column 127)",
-                                                      " (in 'string', line 79, column 21 to column 65)",
-                                                      " (in 'string', line 79, column 4 to column 135)",
-                                                      " (in 'string', line 82, column 42 to column 86)",
-                                                      " (in 'string', line 82, column 4 to column 156)",
-                                                      " (in 'string', line 85, column 54 to column 73)",
-                                                      " (in 'string', line 85, column 4 to column 119)",
-                                                      " (in 'string', line 88, column 52 to column 67)",
-                                                      " (in 'string', line 88, column 4 to column 108)",
-                                                      " (in 'string', line 91, column 20 to column 35)",
-                                                      " (in 'string', line 91, column 4 to column 76)",
-                                                      " (in 'string', line 97, column 6 to column 156)",
-                                                      " (in 'string', line 94, column 62 to line 99, column 5)",
-                                                      " (in 'string', line 94, column 4 to line 99, column 5)",
-                                                      " (in 'string', line 108, column 6 to column 49)",
-                                                      " (in 'string', line 111, column 6 to column 57)",
-                                                      " (in 'string', line 114, column 65 to column 106)",
-                                                      " (in 'string', line 114, column 6 to column 106)",
-                                                      " (in 'string', line 117, column 65 to column 149)",
-                                                      " (in 'string', line 117, column 6 to column 149)",
-                                                      " (in 'string', line 119, column 6 to column 81)",
-                                                      " (in 'string', line 122, column 6 to line 134, column 7)",
-                                                      " (in 'string', line 125, column 8 to column 88)",
-                                                      " (in 'string', line 127, column 68 to column 242)",
-                                                      " (in 'string', line 127, column 8 to column 242)",
-                                                      " (in 'string', line 130, column 8 to column 143)",
-                                                      " (in 'string', line 132, column 8 to column 19)",
-                                                      " (in 'string', line 137, column 6 to column 119)",
-                                                      " (in 'string', line 140, column 36 to column 188)",
-                                                      " (in 'string', line 140, column 6 to column 188)",
-                                                      " (in 'string', line 105, column 11 to line 142, column 5)",
-                                                      " (in 'string', line 103, column 36 to column 122)",
-                                                      " (in 'string', line 103, column 6 to column 122)",
-                                                      " (in 'string', line 101, column 32 to line 105, column 5)",
-                                                      " (in 'string', line 101, column 4 to line 142, column 5)",
-                                                      " (in 'string', line 146, column 6 to column 90)",
-                                                      " (in 'string', line 144, column 34 to line 148, column 5)",
-                                                      " (in 'string', line 144, column 4 to line 148, column 5)",
-                                                      " (in 'string', line 150, column 4 to column 28)",
-                                                      " (in 'string', line 49, column 137 to line 152, column 3)"};
+                                                      " (in 'string', line 53, column 4 to column 54)",
+                                                      " (in 'string', line 56, column 4 to column 153)",
+                                                      " (in 'string', line 59, column 4 to column 18)",
+                                                      " (in 'string', line 62, column 4 to column 55)",
+                                                      " (in 'string', line 65, column 4 to column 65)",
+                                                      " (in 'string', line 68, column 4 to column 29)",
+                                                      " (in 'string', line 71, column 4 to column 33)",
+                                                      " (in 'string', line 74, column 4 to column 58)",
+                                                      " (in 'string', line 77, column 18 to column 62)",
+                                                      " (in 'string', line 77, column 4 to column 127)",
+                                                      " (in 'string', line 80, column 21 to column 65)",
+                                                      " (in 'string', line 80, column 4 to column 135)",
+                                                      " (in 'string', line 83, column 42 to column 86)",
+                                                      " (in 'string', line 83, column 4 to column 156)",
+                                                      " (in 'string', line 86, column 54 to column 73)",
+                                                      " (in 'string', line 86, column 4 to column 119)",
+                                                      " (in 'string', line 89, column 52 to column 67)",
+                                                      " (in 'string', line 89, column 4 to column 108)",
+                                                      " (in 'string', line 92, column 20 to column 35)",
+                                                      " (in 'string', line 92, column 4 to column 76)",
+                                                      " (in 'string', line 98, column 6 to column 156)",
+                                                      " (in 'string', line 95, column 62 to line 100, column 5)",
+                                                      " (in 'string', line 95, column 4 to line 100, column 5)",
+                                                      " (in 'string', line 109, column 6 to column 49)",
+                                                      " (in 'string', line 112, column 6 to column 57)",
+                                                      " (in 'string', line 115, column 65 to column 106)",
+                                                      " (in 'string', line 115, column 6 to column 106)",
+                                                      " (in 'string', line 118, column 65 to column 149)",
+                                                      " (in 'string', line 118, column 6 to column 149)",
+                                                      " (in 'string', line 120, column 6 to column 81)",
+                                                      " (in 'string', line 123, column 6 to line 135, column 7)",
+                                                      " (in 'string', line 126, column 8 to column 88)",
+                                                      " (in 'string', line 128, column 68 to column 242)",
+                                                      " (in 'string', line 128, column 8 to column 242)",
+                                                      " (in 'string', line 131, column 8 to column 143)",
+                                                      " (in 'string', line 133, column 8 to column 19)",
+                                                      " (in 'string', line 138, column 6 to column 119)",
+                                                      " (in 'string', line 141, column 36 to column 188)",
+                                                      " (in 'string', line 141, column 6 to column 188)",
+                                                      " (in 'string', line 106, column 11 to line 143, column 5)",
+                                                      " (in 'string', line 104, column 36 to column 137)",
+                                                      " (in 'string', line 104, column 6 to column 137)",
+                                                      " (in 'string', line 102, column 32 to line 106, column 5)",
+                                                      " (in 'string', line 102, column 4 to line 143, column 5)",
+                                                      " (in 'string', line 147, column 6 to column 90)",
+                                                      " (in 'string', line 145, column 34 to line 149, column 5)",
+                                                      " (in 'string', line 145, column 4 to line 149, column 5)",
+                                                      " (in 'string', line 151, column 4 to column 28)",
+                                                      " (in 'string', line 50, column 137 to line 153, column 3)"};
 template <bool propto__, typename T0__, typename T1__, typename T2__,
 typename T3__, typename T4__>
 stan::promote_args_t<T0__, T1__, T2__, T3__,
@@ -178,18 +176,18 @@ estRodis_stan_scaled_beta_lpdf(const T0__& alpha, const T1__& beta,
     local_scalar_t__ result;
     result = DUMMY_VAR__;
     
-    current_statement__ = 21;
+    current_statement__ = 19;
     result = 0;
-    current_statement__ = 24;
+    current_statement__ = 22;
     if ((primitive_value(logical_gte(x, p)) && primitive_value(
         logical_lte(x, q)))) {
-      current_statement__ = 22;
+      current_statement__ = 20;
       result = ((pow((x - p), (alpha - 1)) * pow((q - x), (beta - 1))) /
                  (((pow((q - p), ((alpha + beta) - 1)) *
                      stan::math::tgamma(alpha)) * stan::math::tgamma(beta)) /
                    stan::math::tgamma((alpha + beta))));
     } 
-    current_statement__ = 25;
+    current_statement__ = 23;
     return result;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -223,20 +221,20 @@ determine_scaling_factor(const T0__& x, std::ostream* pstream__) {
     int result;
     result = std::numeric_limits<int>::min();
     
-    current_statement__ = 27;
+    current_statement__ = 25;
     result = 0;
-    current_statement__ = 33;
+    current_statement__ = 31;
     if (logical_gte(x, 1000)) {
-      current_statement__ = 31;
+      current_statement__ = 29;
       result = 1000;
     } else {
-      current_statement__ = 29;
+      current_statement__ = 27;
       while (logical_lt(result, x)) {
-        current_statement__ = 28;
+        current_statement__ = 26;
         result = (result + 1);
       }
     }
-    current_statement__ = 34;
+    current_statement__ = 32;
     return result;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -271,12 +269,12 @@ estRodis_stan_likelihood_log(const std::vector<int>& clusters_size,
     int n_clusters_size;
     n_clusters_size = std::numeric_limits<int>::min();
     
-    current_statement__ = 36;
+    current_statement__ = 34;
     n_clusters_size = num_elements(clusters_size);
     int upper_limit_size_identical_sequence_clusters;
     upper_limit_size_identical_sequence_clusters = std::numeric_limits<int>::min();
     
-    current_statement__ = 37;
+    current_statement__ = 35;
     upper_limit_size_identical_sequence_clusters = std::max(
                                                      (determine_scaling_factor(
                                                         (2 / detection_proba), pstream__)
@@ -286,17 +284,17 @@ estRodis_stan_likelihood_log(const std::vector<int>& clusters_size,
     int index;
     index = std::numeric_limits<int>::min();
     
-    current_statement__ = 38;
+    current_statement__ = 36;
     index = 2;
     local_scalar_t__ log_R_d_k;
     log_R_d_k = DUMMY_VAR__;
     
-    current_statement__ = 39;
+    current_statement__ = 37;
     log_R_d_k = stan::math::log(((R * (1 - mutation_proba)) / k));
     local_scalar_t__ log_one_p_R_d_k;
     log_one_p_R_d_k = DUMMY_VAR__;
     
-    current_statement__ = 40;
+    current_statement__ = 38;
     log_one_p_R_d_k = stan::math::log((1 + ((R * (1 - mutation_proba)) / k)));
     local_scalar_t__ log_detection_proba;
     log_detection_proba = DUMMY_VAR__;
@@ -307,72 +305,72 @@ estRodis_stan_likelihood_log(const std::vector<int>& clusters_size,
     local_scalar_t__ log_proba_detect_ident_seq_tree_size_bigger_zero;
     log_proba_detect_ident_seq_tree_size_bigger_zero = DUMMY_VAR__;
     
-    current_statement__ = 44;
+    current_statement__ = 42;
     validate_non_negative_index("log_sums",
                                 "upper_limit_size_identical_sequence_clusters",
                                 upper_limit_size_identical_sequence_clusters);
     std::vector<local_scalar_t__> log_sums;
     log_sums = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
     
-    current_statement__ = 45;
+    current_statement__ = 43;
     assign(log_sums, nil_index_list(),
       rep_array(0.0, upper_limit_size_identical_sequence_clusters),
       "assigning variable log_sums");
-    current_statement__ = 46;
+    current_statement__ = 44;
     validate_non_negative_index("result_temp",
                                 "upper_limit_size_identical_sequence_clusters",
                                 upper_limit_size_identical_sequence_clusters);
     std::vector<local_scalar_t__> result_temp;
     result_temp = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
     
-    current_statement__ = 47;
+    current_statement__ = 45;
     assign(result_temp, nil_index_list(),
       rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
       "assigning variable result_temp");
-    current_statement__ = 48;
+    current_statement__ = 46;
     validate_non_negative_index("distribution_size_ident_seq_tree",
                                 "upper_limit_size_identical_sequence_clusters",
                                 upper_limit_size_identical_sequence_clusters);
     std::vector<local_scalar_t__> distribution_size_ident_seq_tree;
     distribution_size_ident_seq_tree = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
     
-    current_statement__ = 49;
+    current_statement__ = 47;
     assign(distribution_size_ident_seq_tree, nil_index_list(),
       rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
       "assigning variable distribution_size_ident_seq_tree");
-    current_statement__ = 50;
+    current_statement__ = 48;
     validate_non_negative_index("distribution_size_ident_seq_tree_detection_0",
                                 "n_clusters_size + 1", (n_clusters_size + 1));
     std::vector<local_scalar_t__> distribution_size_ident_seq_tree_detection_0;
     distribution_size_ident_seq_tree_detection_0 = std::vector<local_scalar_t__>(
       (n_clusters_size + 1), DUMMY_VAR__);
     
-    current_statement__ = 51;
+    current_statement__ = 49;
     assign(distribution_size_ident_seq_tree_detection_0, nil_index_list(),
       rep_array(-10000.0, (n_clusters_size + 1)),
       "assigning variable distribution_size_ident_seq_tree_detection_0");
-    current_statement__ = 52;
+    current_statement__ = 50;
     validate_non_negative_index("distribution_size_ident_seq_tree_detection",
                                 "n_clusters_size", n_clusters_size);
     std::vector<local_scalar_t__> distribution_size_ident_seq_tree_detection;
     distribution_size_ident_seq_tree_detection = std::vector<local_scalar_t__>(n_clusters_size, DUMMY_VAR__);
     
-    current_statement__ = 53;
+    current_statement__ = 51;
     assign(distribution_size_ident_seq_tree_detection, nil_index_list(),
       rep_array(-10000.0, n_clusters_size),
       "assigning variable distribution_size_ident_seq_tree_detection");
-    current_statement__ = 54;
+    current_statement__ = 52;
     validate_non_negative_index("likelihood", "n_clusters_size",
                                 n_clusters_size);
     std::vector<local_scalar_t__> likelihood;
     likelihood = std::vector<local_scalar_t__>(n_clusters_size, DUMMY_VAR__);
     
-    current_statement__ = 55;
+    current_statement__ = 53;
     assign(likelihood, nil_index_list(),
       rep_array(-10000.0, n_clusters_size), "assigning variable likelihood");
-    current_statement__ = 58;
+    current_statement__ = 56;
     for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters; ++ii) {
-      current_statement__ = 56;
+      current_statement__ = 54;
       assign(distribution_size_ident_seq_tree,
         cons_list(index_uni(ii), nil_index_list()),
         ((((stan::math::lgamma((((k * ii) + ii) - 1)) -
@@ -380,55 +378,55 @@ estRodis_stan_likelihood_log(const std::vector<int>& clusters_size,
            ((ii - 1) * log_R_d_k)) -
           ((((k * ii) + ii) - 1) * log_one_p_R_d_k)),
         "assigning variable distribution_size_ident_seq_tree");}
-    current_statement__ = 79;
+    current_statement__ = 77;
     if (logical_eq(detection_proba, 1.0)) {
-      current_statement__ = 77;
+      current_statement__ = 75;
       for (int ii = 1; ii <= n_clusters_size; ++ii) {
-        current_statement__ = 76;
+        current_statement__ = 74;
         assign(distribution_size_ident_seq_tree_detection,
           cons_list(index_uni(ii), nil_index_list()),
-          distribution_size_ident_seq_tree[(ii - 1)],
+          distribution_size_ident_seq_tree[(clusters_size[(ii - 1)] - 1)],
           "assigning variable distribution_size_ident_seq_tree_detection");}
     } else {
-      current_statement__ = 59;
+      current_statement__ = 57;
       log_detection_proba = stan::math::log(detection_proba);
-      current_statement__ = 60;
+      current_statement__ = 58;
       log_1_m_detection_proba = stan::math::log((1 - detection_proba));
-      current_statement__ = 62;
+      current_statement__ = 60;
       for (int ii = 2; ii <= upper_limit_size_identical_sequence_clusters;
            ++ii) {
-        current_statement__ = 61;
+        current_statement__ = 59;
         assign(log_sums, cons_list(index_uni(ii), nil_index_list()),
           (log_sums[(ii - 1)] +
             (log_sums[((ii - 1) - 1)] + stan::math::log(ii))),
           "assigning variable log_sums");}
-      current_statement__ = 64;
+      current_statement__ = 62;
       for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters;
            ++ii) {
-        current_statement__ = 63;
+        current_statement__ = 61;
         assign(result_temp, cons_list(index_uni(ii), nil_index_list()),
           ((ii * log_1_m_detection_proba) +
             distribution_size_ident_seq_tree[(ii - 1)]),
           "assigning variable result_temp");}
-      current_statement__ = 65;
+      current_statement__ = 63;
       assign(distribution_size_ident_seq_tree_detection_0,
         cons_list(index_uni(1), nil_index_list()), log_sum_exp(result_temp),
         "assigning variable distribution_size_ident_seq_tree_detection_0");
-      current_statement__ = 66;
+      current_statement__ = 64;
       for (int sym1__ = 1; sym1__ <= stan::math::size(clusters_size);
            ++sym1__) {
         {
           int jj;
-          current_statement__ = 66;
+          current_statement__ = 64;
           jj = clusters_size[(sym1__ - 1)];
-          current_statement__ = 67;
+          current_statement__ = 65;
           assign(result_temp, nil_index_list(),
             rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
             "assigning variable result_temp");
-          current_statement__ = 69;
+          current_statement__ = 67;
           for (int ii = jj;
                ii <= upper_limit_size_identical_sequence_clusters; ++ii) {
-            current_statement__ = 68;
+            current_statement__ = 66;
             assign(result_temp, cons_list(index_uni(ii), nil_index_list()),
               (((((log_sums[(ii - 1)] - log_sums[(jj - 1)]) -
                    log_sums[(std::max((ii - jj), 1) - 1)]) +
@@ -436,39 +434,39 @@ estRodis_stan_likelihood_log(const std::vector<int>& clusters_size,
                  ((ii - jj) * log_1_m_detection_proba)) +
                 distribution_size_ident_seq_tree[(ii - 1)]),
               "assigning variable result_temp");}
-          current_statement__ = 70;
+          current_statement__ = 68;
           assign(distribution_size_ident_seq_tree_detection_0,
             cons_list(index_uni(index), nil_index_list()),
             log_sum_exp(
               tail(result_temp,
                 ((upper_limit_size_identical_sequence_clusters - jj) + 1))),
             "assigning variable distribution_size_ident_seq_tree_detection_0");
-          current_statement__ = 71;
+          current_statement__ = 69;
           index = (index + 1);
         }}
-      current_statement__ = 72;
+      current_statement__ = 70;
       log_proba_detect_ident_seq_tree_size_bigger_zero = stan::math::log(
                                                            (1 -
                                                              stan::math::exp(
                                                                distribution_size_ident_seq_tree_detection_0[
                                                                (1 - 1)])));
-      current_statement__ = 74;
+      current_statement__ = 72;
       for (int ii = 1; ii <= n_clusters_size; ++ii) {
-        current_statement__ = 73;
+        current_statement__ = 71;
         assign(distribution_size_ident_seq_tree_detection,
           cons_list(index_uni(ii), nil_index_list()),
           (distribution_size_ident_seq_tree_detection_0[((ii + 1) - 1)] -
             log_proba_detect_ident_seq_tree_size_bigger_zero),
           "assigning variable distribution_size_ident_seq_tree_detection");}
     }
-    current_statement__ = 82;
+    current_statement__ = 80;
     for (int ii = 1; ii <= n_clusters_size; ++ii) {
-      current_statement__ = 80;
+      current_statement__ = 78;
       assign(likelihood, cons_list(index_uni(ii), nil_index_list()),
         (clusters_freq[(ii - 1)] *
           distribution_size_ident_seq_tree_detection[(ii - 1)]),
         "assigning variable likelihood");}
-    current_statement__ = 83;
+    current_statement__ = 81;
     return sum(likelihood);
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -501,8 +499,7 @@ private:
   std::vector<double> prior_k;
   double mean_generation_interval;
   std::vector<double> prior_number_yearly_mutations;
-  double testing_proba;
-  double sequencing_proba;
+  double detection_proba;
  
 public:
   ~model_estRodis_stan_model_estimate_parameters_two() { }
@@ -530,83 +527,76 @@ public:
       pos__ = std::numeric_limits<int>::min();
       
       pos__ = 1;
-      current_statement__ = 10;
+      current_statement__ = 9;
       context__.validate_dims("data initialization","M","int",
           context__.to_vec());
       M = std::numeric_limits<int>::min();
       
-      current_statement__ = 10;
+      current_statement__ = 9;
       M = context__.vals_i("M")[(1 - 1)];
-      current_statement__ = 10;
-      current_statement__ = 10;
+      current_statement__ = 9;
+      current_statement__ = 9;
       check_greater_or_equal(function__, "M", M, 1);
-      current_statement__ = 11;
+      current_statement__ = 10;
       validate_non_negative_index("clusters_size", "M", M);
-      current_statement__ = 12;
+      current_statement__ = 11;
       context__.validate_dims("data initialization","clusters_size","int",
           context__.to_vec(M));
       clusters_size = std::vector<int>(M, std::numeric_limits<int>::min());
       
-      current_statement__ = 12;
+      current_statement__ = 11;
       assign(clusters_size, nil_index_list(),
         context__.vals_i("clusters_size"), "assigning variable clusters_size");
-      current_statement__ = 13;
+      current_statement__ = 12;
       validate_non_negative_index("clusters_freq", "M", M);
-      current_statement__ = 14;
+      current_statement__ = 13;
       context__.validate_dims("data initialization","clusters_freq","int",
           context__.to_vec(M));
       clusters_freq = std::vector<int>(M, std::numeric_limits<int>::min());
       
-      current_statement__ = 14;
+      current_statement__ = 13;
       assign(clusters_freq, nil_index_list(),
         context__.vals_i("clusters_freq"), "assigning variable clusters_freq");
-      current_statement__ = 15;
+      current_statement__ = 14;
       context__.validate_dims("data initialization","prior_r","double",
           context__.to_vec(2));
       prior_r = std::vector<double>(2, std::numeric_limits<double>::quiet_NaN());
       
-      current_statement__ = 15;
+      current_statement__ = 14;
       assign(prior_r, nil_index_list(), context__.vals_r("prior_r"),
         "assigning variable prior_r");
-      current_statement__ = 16;
+      current_statement__ = 15;
       context__.validate_dims("data initialization","prior_k","double",
           context__.to_vec(2));
       prior_k = std::vector<double>(2, std::numeric_limits<double>::quiet_NaN());
       
-      current_statement__ = 16;
+      current_statement__ = 15;
       assign(prior_k, nil_index_list(), context__.vals_r("prior_k"),
         "assigning variable prior_k");
-      current_statement__ = 17;
+      current_statement__ = 16;
       context__.validate_dims("data initialization",
           "mean_generation_interval","double",context__.to_vec());
       mean_generation_interval = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 17;
+      current_statement__ = 16;
       mean_generation_interval = context__.vals_r("mean_generation_interval")[
           (1 - 1)];
-      current_statement__ = 18;
+      current_statement__ = 17;
       context__.validate_dims("data initialization",
           "prior_number_yearly_mutations","double",context__.to_vec(2));
       prior_number_yearly_mutations = std::vector<double>(2, std::numeric_limits<double>::quiet_NaN());
       
-      current_statement__ = 18;
+      current_statement__ = 17;
       assign(prior_number_yearly_mutations, nil_index_list(),
         context__.vals_r("prior_number_yearly_mutations"),
         "assigning variable prior_number_yearly_mutations");
-      current_statement__ = 19;
-      context__.validate_dims("data initialization","testing_proba","double",
-          context__.to_vec());
-      testing_proba = std::numeric_limits<double>::quiet_NaN();
-      
-      current_statement__ = 19;
-      testing_proba = context__.vals_r("testing_proba")[(1 - 1)];
-      current_statement__ = 20;
-      context__.validate_dims("data initialization","sequencing_proba",
+      current_statement__ = 18;
+      context__.validate_dims("data initialization","detection_proba",
           "double",context__.to_vec());
-      sequencing_proba = std::numeric_limits<double>::quiet_NaN();
+      detection_proba = std::numeric_limits<double>::quiet_NaN();
       
-      current_statement__ = 20;
-      sequencing_proba = context__.vals_r("sequencing_proba")[(1 - 1)];
+      current_statement__ = 18;
+      detection_proba = context__.vals_r("detection_proba")[(1 - 1)];
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
       // Next line prevents compiler griping about no return
@@ -688,24 +678,19 @@ public:
                          stan::math::exp(
                            ((-number_yearly_mutations / 365.25) *
                              mean_generation_interval)));
-      local_scalar_t__ detection_proba;
-      detection_proba = DUMMY_VAR__;
-      
-      current_statement__ = 5;
-      detection_proba = (testing_proba * sequencing_proba);
       {
-        current_statement__ = 6;
+        current_statement__ = 5;
         lp_accum__.add(
           gamma_lpdf<propto__>(R, prior_r[(1 - 1)], prior_r[(2 - 1)]));
-        current_statement__ = 7;
+        current_statement__ = 6;
         lp_accum__.add(
           gamma_lpdf<propto__>(k, prior_k[(1 - 1)], prior_k[(2 - 1)]));
-        current_statement__ = 8;
+        current_statement__ = 7;
         lp_accum__.add(
           normal_lpdf<propto__>(number_yearly_mutations,
             prior_number_yearly_mutations[(1 - 1)],
             prior_number_yearly_mutations[(2 - 1)]));
-        current_statement__ = 9;
+        current_statement__ = 8;
         lp_accum__.add(
           estRodis_stan_likelihood_log<false>(clusters_size, clusters_freq,
             R, k, mutation_proba, detection_proba, pstream__));
@@ -763,9 +748,6 @@ public:
       double mutation_proba;
       mutation_proba = std::numeric_limits<double>::quiet_NaN();
       
-      double detection_proba;
-      detection_proba = std::numeric_limits<double>::quiet_NaN();
-      
       vars__.emplace_back(R);
       vars__.emplace_back(k);
       vars__.emplace_back(number_yearly_mutations);
@@ -778,11 +760,8 @@ public:
                          stan::math::exp(
                            ((-number_yearly_mutations / 365.25) *
                              mean_generation_interval)));
-      current_statement__ = 5;
-      detection_proba = (testing_proba * sequencing_proba);
       if (emit_transformed_parameters__) {
         vars__.emplace_back(mutation_proba);
-        vars__.emplace_back(detection_proba);
       } 
       if (logical_negation(emit_generated_quantities__)) {
         return ;
@@ -856,13 +835,10 @@ public:
     names__.emplace_back("k");
     names__.emplace_back("number_yearly_mutations");
     names__.emplace_back("mutation_proba");
-    names__.emplace_back("detection_proba");
     } // get_param_names() 
     
   inline void get_dims(std::vector<std::vector<size_t>>& dimss__) const {
     dimss__.clear();
-    dimss__.emplace_back(std::vector<size_t>{});
-    
     dimss__.emplace_back(std::vector<size_t>{});
     
     dimss__.emplace_back(std::vector<size_t>{});
@@ -884,7 +860,6 @@ public:
     param_names__.emplace_back(std::string() + "number_yearly_mutations");
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "mutation_proba");
-      param_names__.emplace_back(std::string() + "detection_proba");
     }
     
     if (emit_generated_quantities__) {
@@ -904,7 +879,6 @@ public:
     param_names__.emplace_back(std::string() + "number_yearly_mutations");
     if (emit_transformed_parameters__) {
       param_names__.emplace_back(std::string() + "mutation_proba");
-      param_names__.emplace_back(std::string() + "detection_proba");
     }
     
     if (emit_generated_quantities__) {
@@ -915,13 +889,13 @@ public:
     
   inline std::string get_constrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"R\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"k\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"number_yearly_mutations\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mutation_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"detection_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]";
+    s__ << "[{\"name\":\"R\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"k\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"number_yearly_mutations\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mutation_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]";
     return s__.str();
     } // get_constrained_sizedtypes() 
     
   inline std::string get_unconstrained_sizedtypes() const {
     stringstream s__;
-    s__ << "[{\"name\":\"R\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"k\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"number_yearly_mutations\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mutation_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"},{\"name\":\"detection_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]";
+    s__ << "[{\"name\":\"R\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"k\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"number_yearly_mutations\",\"type\":{\"name\":\"real\"},\"block\":\"parameters\"},{\"name\":\"mutation_proba\",\"type\":{\"name\":\"real\"},\"block\":\"transformed_parameters\"}]";
     return s__.str();
     } // get_unconstrained_sizedtypes() 
     
