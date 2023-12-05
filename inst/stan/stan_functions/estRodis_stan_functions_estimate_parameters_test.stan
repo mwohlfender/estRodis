@@ -115,10 +115,10 @@ functions {
     real log_one_p_R_d_k = log(1 + R * (1 - mutation_proba) / k);
 
     // logarithm of detection_proba
-    real log_detection_proba = log(detection_proba);
+    real log_detection_proba;
 
     // logarithm of 1 - detection_proba
-    real log_1_m_detection_proba = log(1 - detection_proba);
+    real log_1_m_detection_proba;
 
     // logarithms of 1!, 2!, 3!, ..., upper_limit_size_identical_sequence_clusters!
     real log_sums[upper_limit_size_identical_sequence_clusters] = rep_array(0.0, upper_limit_size_identical_sequence_clusters);
@@ -190,7 +190,7 @@ functions {
 
         if (start_of_infinity == max_cluster_size) {
 
-          if (extinction_proba / sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)])) - 1 < tol_inf) {
+          if ((extinction_proba - sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)]))) / (1 - sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)]))) < tol_inf) {
 
             start_of_infinity = jj;
 
@@ -201,6 +201,12 @@ functions {
       }
 
     } else {
+
+      // logarithm of detection_proba
+      log_detection_proba = log(detection_proba);
+
+      // logarithm of 1 - detection_proba
+      log_1_m_detection_proba = log(1 - detection_proba);
 
       // determine logarithm of n! for all 1 <= n <= `upper_limit_size_identical_sequence_clusters`
       for (ii in 2:upper_limit_size_identical_sequence_clusters) log_sums[ii] += log_sums[ii-1] + log(ii);
@@ -262,7 +268,7 @@ functions {
 
             if (jj < start_of_infinity) {
 
-              if (extinction_proba / sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)])) - 1 < tol_inf) {
+              if ((extinction_proba - sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)]))) / (1 - sum(exp(distribution_size_ident_seq_cluster_detection[1:(jj-1)]))) < tol_inf) {
 
                 do_calculation = 0;
 
@@ -315,6 +321,12 @@ functions {
       }
 
     }
+
+    // print(start_of_infinity);
+    //
+    // print(distribution_size_ident_seq_cluster_detection[1:125]);
+    //
+    // print(distribution_size_ident_seq_cluster_detection[max_cluster_size+1]);
 
     return(result);
 
