@@ -75,28 +75,28 @@ using stan::math::pow;
 stan::math::profile_map profiles__;
 static int current_statement__= 0;
 static const std::vector<string> locations_array__ = {" (found before start of program)",
-                                                      " (in 'string', line 361, column 2 to column 23)",
-                                                      " (in 'string', line 362, column 2 to column 23)",
-                                                      " (in 'string', line 363, column 2 to column 45)",
-                                                      " (in 'string', line 364, column 2 to column 75)",
-                                                      " (in 'string', line 367, column 2 to column 95)",
-                                                      " (in 'string', line 368, column 2 to column 58)",
-                                                      " (in 'string', line 373, column 2 to column 36)",
-                                                      " (in 'string', line 375, column 2 to column 36)",
-                                                      " (in 'string', line 377, column 2 to column 103)",
-                                                      " (in 'string', line 379, column 2 to column 116)",
-                                                      " (in 'string', line 381, column 2 to column 129)",
-                                                      " (in 'string', line 341, column 2 to column 22)",
-                                                      " (in 'string', line 343, column 20 to column 21)",
-                                                      " (in 'string', line 343, column 2 to column 23)",
-                                                      " (in 'string', line 345, column 20 to column 21)",
-                                                      " (in 'string', line 345, column 2 to column 23)",
-                                                      " (in 'string', line 347, column 2 to column 18)",
-                                                      " (in 'string', line 349, column 2 to column 18)",
-                                                      " (in 'string', line 351, column 2 to column 32)",
-                                                      " (in 'string', line 353, column 2 to column 40)",
-                                                      " (in 'string', line 356, column 2 to column 24)",
-                                                      " (in 'string', line 358, column 2 to column 24)",
+                                                      " (in 'string', line 593, column 2 to column 23)",
+                                                      " (in 'string', line 594, column 2 to column 23)",
+                                                      " (in 'string', line 595, column 2 to column 45)",
+                                                      " (in 'string', line 596, column 2 to column 75)",
+                                                      " (in 'string', line 599, column 2 to column 95)",
+                                                      " (in 'string', line 600, column 2 to column 58)",
+                                                      " (in 'string', line 605, column 2 to column 36)",
+                                                      " (in 'string', line 607, column 2 to column 36)",
+                                                      " (in 'string', line 609, column 2 to column 103)",
+                                                      " (in 'string', line 611, column 2 to column 116)",
+                                                      " (in 'string', line 613, column 2 to column 129)",
+                                                      " (in 'string', line 573, column 2 to column 22)",
+                                                      " (in 'string', line 575, column 20 to column 21)",
+                                                      " (in 'string', line 575, column 2 to column 23)",
+                                                      " (in 'string', line 577, column 20 to column 21)",
+                                                      " (in 'string', line 577, column 2 to column 23)",
+                                                      " (in 'string', line 579, column 2 to column 18)",
+                                                      " (in 'string', line 581, column 2 to column 18)",
+                                                      " (in 'string', line 583, column 2 to column 32)",
+                                                      " (in 'string', line 585, column 2 to column 40)",
+                                                      " (in 'string', line 588, column 2 to column 24)",
+                                                      " (in 'string', line 590, column 2 to column 24)",
                                                       " (in 'string', line 10, column 4 to column 20)",
                                                       " (in 'string', line 14, column 6 to column 133)",
                                                       " (in 'string', line 12, column 27 to line 16, column 5)",
@@ -239,7 +239,107 @@ static const std::vector<string> locations_array__ = {" (found before start of p
                                                       " (in 'string', line 314, column 34 to line 326, column 5)",
                                                       " (in 'string', line 314, column 4 to line 326, column 5)",
                                                       " (in 'string', line 334, column 4 to column 19)",
-                                                      " (in 'string', line 103, column 187 to line 336, column 3)"};
+                                                      " (in 'string', line 103, column 187 to line 336, column 3)",
+                                                      " (in 'string', line 343, column 4 to column 149)",
+                                                      " (in 'string', line 346, column 4 to column 55)",
+                                                      " (in 'string', line 349, column 4 to column 65)",
+                                                      " (in 'string', line 352, column 4 to column 29)",
+                                                      " (in 'string', line 355, column 4 to column 33)",
+                                                      " (in 'string', line 358, column 18 to column 62)",
+                                                      " (in 'string', line 358, column 4 to column 127)",
+                                                      " (in 'string', line 361, column 21 to column 65)",
+                                                      " (in 'string', line 361, column 4 to column 135)",
+                                                      " (in 'string', line 364, column 42 to column 86)",
+                                                      " (in 'string', line 364, column 4 to column 156)",
+                                                      " (in 'string', line 367, column 4 to column 58)",
+                                                      " (in 'string', line 373, column 6 to column 156)",
+                                                      " (in 'string', line 370, column 62 to line 375, column 5)",
+                                                      " (in 'string', line 370, column 4 to line 375, column 5)",
+                                                      " (in 'string', line 385, column 6 to column 49)",
+                                                      " (in 'string', line 388, column 6 to column 57)",
+                                                      " (in 'string', line 391, column 65 to column 106)",
+                                                      " (in 'string', line 391, column 6 to column 106)",
+                                                      " (in 'string', line 394, column 65 to column 149)",
+                                                      " (in 'string', line 394, column 6 to column 149)",
+                                                      " (in 'string', line 397, column 6 to column 87)",
+                                                      " (in 'string', line 382, column 11 to line 399, column 5)",
+                                                      " (in 'string', line 380, column 6 to column 55)",
+                                                      " (in 'string', line 377, column 32 to line 382, column 5)",
+                                                      " (in 'string', line 377, column 4 to line 399, column 5)",
+                                                      " (in 'string', line 401, column 4 to column 57)",
+                                                      " (in 'string', line 340, column 124 to line 403, column 3)",
+                                                      " (in 'string', line 410, column 4 to column 96)",
+                                                      " (in 'string', line 413, column 4 to column 122)",
+                                                      " (in 'string', line 416, column 4 to column 94)",
+                                                      " (in 'string', line 418, column 4 to column 19)",
+                                                      " (in 'string', line 407, column 103 to line 420, column 3)",
+                                                      " (in 'string', line 426, column 4 to column 54)",
+                                                      " (in 'string', line 429, column 4 to column 153)",
+                                                      " (in 'string', line 432, column 4 to column 55)",
+                                                      " (in 'string', line 435, column 4 to column 65)",
+                                                      " (in 'string', line 438, column 4 to column 52)",
+                                                      " (in 'string', line 441, column 4 to column 60)",
+                                                      " (in 'string', line 444, column 4 to column 58)",
+                                                      " (in 'string', line 447, column 18 to column 62)",
+                                                      " (in 'string', line 447, column 4 to column 127)",
+                                                      " (in 'string', line 450, column 21 to column 65)",
+                                                      " (in 'string', line 450, column 4 to column 135)",
+                                                      " (in 'string', line 453, column 42 to column 86)",
+                                                      " (in 'string', line 453, column 4 to column 156)",
+                                                      " (in 'string', line 456, column 52 to column 67)",
+                                                      " (in 'string', line 456, column 4 to column 108)",
+                                                      " (in 'string', line 459, column 20 to column 35)",
+                                                      " (in 'string', line 459, column 4 to column 76)",
+                                                      " (in 'string', line 465, column 6 to column 156)",
+                                                      " (in 'string', line 462, column 62 to line 467, column 5)",
+                                                      " (in 'string', line 462, column 4 to line 467, column 5)",
+                                                      " (in 'string', line 476, column 65 to column 106)",
+                                                      " (in 'string', line 476, column 6 to column 106)",
+                                                      " (in 'string', line 479, column 65 to column 149)",
+                                                      " (in 'string', line 479, column 6 to column 149)",
+                                                      " (in 'string', line 482, column 6 to column 96)",
+                                                      " (in 'string', line 490, column 10 to column 90)",
+                                                      " (in 'string', line 492, column 85 to column 319)",
+                                                      " (in 'string', line 492, column 10 to column 319)",
+                                                      " (in 'string', line 495, column 10 to column 207)",
+                                                      " (in 'string', line 487, column 36 to line 497, column 9)",
+                                                      " (in 'string', line 487, column 8 to line 497, column 9)",
+                                                      " (in 'string', line 485, column 36 to line 499, column 7)",
+                                                      " (in 'string', line 485, column 6 to line 499, column 7)",
+                                                      " (in 'string', line 473, column 11 to line 501, column 5)",
+                                                      " (in 'string', line 471, column 36 to column 137)",
+                                                      " (in 'string', line 471, column 6 to column 137)",
+                                                      " (in 'string', line 469, column 32 to line 473, column 5)",
+                                                      " (in 'string', line 469, column 4 to line 501, column 5)",
+                                                      " (in 'string', line 505, column 6 to column 90)",
+                                                      " (in 'string', line 503, column 34 to line 507, column 5)",
+                                                      " (in 'string', line 503, column 4 to line 507, column 5)",
+                                                      " (in 'string', line 511, column 4 to column 28)",
+                                                      " (in 'string', line 423, column 128 to line 513, column 3)",
+                                                      " (in 'string', line 520, column 4 to column 54)",
+                                                      " (in 'string', line 523, column 29 to column 48)",
+                                                      " (in 'string', line 523, column 4 to column 86)",
+                                                      " (in 'string', line 526, column 29 to column 48)",
+                                                      " (in 'string', line 526, column 4 to column 86)",
+                                                      " (in 'string', line 529, column 4 to column 93)",
+                                                      " (in 'string', line 532, column 4 to column 29)",
+                                                      " (in 'string', line 535, column 4 to column 33)",
+                                                      " (in 'string', line 538, column 4 to column 22)",
+                                                      " (in 'string', line 548, column 8 to column 53)",
+                                                      " (in 'string', line 550, column 8 to column 53)",
+                                                      " (in 'string', line 546, column 40 to line 552, column 7)",
+                                                      " (in 'string', line 546, column 6 to line 552, column 7)",
+                                                      " (in 'string', line 554, column 6 to column 129)",
+                                                      " (in 'string', line 558, column 8 to column 39)",
+                                                      " (in 'string', line 556, column 27 to line 560, column 7)",
+                                                      " (in 'string', line 556, column 6 to line 560, column 7)",
+                                                      " (in 'string', line 562, column 6 to column 82)",
+                                                      " (in 'string', line 544, column 11 to line 564, column 5)",
+                                                      " (in 'string', line 542, column 6 to column 104)",
+                                                      " (in 'string', line 540, column 42 to line 544, column 5)",
+                                                      " (in 'string', line 540, column 4 to line 564, column 5)",
+                                                      " (in 'string', line 566, column 4 to column 19)",
+                                                      " (in 'string', line 517, column 172 to line 568, column 3)"};
 template <bool propto__, typename T0__, typename T1__, typename T2__,
 typename T3__, typename T4__>
 stan::promote_args_t<T0__, T1__, T2__, T3__,
@@ -922,6 +1022,522 @@ operator()(const std::vector<int>& clusters_size,
 return estRodis_stan_likelihood_log_smart(clusters_size, clusters_freq,
          upper_limit_cluster_size, R, k, mutation_proba, detection_proba,
          tol_inf, pstream__);
+}
+};
+template <typename T1__, typename T2__, typename T3__, typename T4__>
+stan::promote_args_t<T1__, T2__, T3__,
+T4__>
+stan_cluster_size_proba_bigger_zero(const int& max_cluster_size,
+                                    const T1__& R, const T2__& k,
+                                    const T3__& mutation_proba,
+                                    const T4__& detection_proba,
+                                    std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T1__, T2__, T3__, T4__>;
+  const static bool propto__ = true;
+  (void) propto__;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  (void) DUMMY_VAR__;  // suppress unused var warning
+  
+  try {
+    int upper_limit_size_identical_sequence_clusters;
+    upper_limit_size_identical_sequence_clusters = std::numeric_limits<int>::min();
+    
+    current_statement__ = 166;
+    upper_limit_size_identical_sequence_clusters = std::max(
+                                                     (determine_scaling_factor(
+                                                        (2 / detection_proba), pstream__)
+                                                       * max_cluster_size),
+                                                     (max_cluster_size + 500));
+    local_scalar_t__ log_R_d_k;
+    log_R_d_k = DUMMY_VAR__;
+    
+    current_statement__ = 167;
+    log_R_d_k = stan::math::log(((R * (1 - mutation_proba)) / k));
+    local_scalar_t__ log_one_p_R_d_k;
+    log_one_p_R_d_k = DUMMY_VAR__;
+    
+    current_statement__ = 168;
+    log_one_p_R_d_k = stan::math::log((1 + ((R * (1 - mutation_proba)) / k)));
+    local_scalar_t__ log_detection_proba;
+    log_detection_proba = DUMMY_VAR__;
+    
+    local_scalar_t__ log_1_m_detection_proba;
+    log_1_m_detection_proba = DUMMY_VAR__;
+    
+    current_statement__ = 171;
+    validate_non_negative_index("log_sums",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> log_sums;
+    log_sums = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 172;
+    assign(log_sums, nil_index_list(),
+      rep_array(0.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable log_sums");
+    current_statement__ = 173;
+    validate_non_negative_index("result_temp",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> result_temp;
+    result_temp = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 174;
+    assign(result_temp, nil_index_list(),
+      rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable result_temp");
+    current_statement__ = 175;
+    validate_non_negative_index("distribution_size_ident_seq_tree",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> distribution_size_ident_seq_tree;
+    distribution_size_ident_seq_tree = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 176;
+    assign(distribution_size_ident_seq_tree, nil_index_list(),
+      rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable distribution_size_ident_seq_tree");
+    local_scalar_t__ proba_detect_ident_seq_tree_size_bigger_zero;
+    proba_detect_ident_seq_tree_size_bigger_zero = DUMMY_VAR__;
+    
+    current_statement__ = 177;
+    proba_detect_ident_seq_tree_size_bigger_zero = 1;
+    current_statement__ = 180;
+    for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters; ++ii) {
+      current_statement__ = 178;
+      assign(distribution_size_ident_seq_tree,
+        cons_list(index_uni(ii), nil_index_list()),
+        ((((stan::math::lgamma((((k * ii) + ii) - 1)) -
+             stan::math::lgamma((k * ii))) - stan::math::lgamma((ii + 1))) +
+           ((ii - 1) * log_R_d_k)) -
+          ((((k * ii) + ii) - 1) * log_one_p_R_d_k)),
+        "assigning variable distribution_size_ident_seq_tree");}
+    current_statement__ = 191;
+    if (logical_eq(detection_proba, 1.0)) {
+      current_statement__ = 189;
+      proba_detect_ident_seq_tree_size_bigger_zero = 1;
+    } else {
+      current_statement__ = 181;
+      log_detection_proba = stan::math::log(detection_proba);
+      current_statement__ = 182;
+      log_1_m_detection_proba = stan::math::log((1 - detection_proba));
+      current_statement__ = 184;
+      for (int ii = 2; ii <= upper_limit_size_identical_sequence_clusters;
+           ++ii) {
+        current_statement__ = 183;
+        assign(log_sums, cons_list(index_uni(ii), nil_index_list()),
+          (log_sums[(ii - 1)] +
+            (log_sums[((ii - 1) - 1)] + stan::math::log(ii))),
+          "assigning variable log_sums");}
+      current_statement__ = 186;
+      for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters;
+           ++ii) {
+        current_statement__ = 185;
+        assign(result_temp, cons_list(index_uni(ii), nil_index_list()),
+          ((ii * log_1_m_detection_proba) +
+            distribution_size_ident_seq_tree[(ii - 1)]),
+          "assigning variable result_temp");}
+      current_statement__ = 187;
+      proba_detect_ident_seq_tree_size_bigger_zero = (1 -
+                                                       stan::math::exp(
+                                                         log_sum_exp(
+                                                           result_temp)));
+    }
+    current_statement__ = 192;
+    return proba_detect_ident_seq_tree_size_bigger_zero;
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+      // Next line prevents compiler griping about no return
+      throw std::runtime_error("*** IF YOU SEE THIS, PLEASE REPORT A BUG ***"); 
+  }
+  
+}
+struct stan_cluster_size_proba_bigger_zero_functor__ {
+template <typename T1__, typename T2__, typename T3__, typename T4__>
+stan::promote_args_t<T1__, T2__, T3__,
+T4__>
+operator()(const int& max_cluster_size, const T1__& R, const T2__& k,
+           const T3__& mutation_proba, const T4__& detection_proba,
+           std::ostream* pstream__)  const 
+{
+return stan_cluster_size_proba_bigger_zero(max_cluster_size, R, k,
+         mutation_proba, detection_proba, pstream__);
+}
+};
+template <typename T1__, typename T2__, typename T3__, typename T4__>
+stan::promote_args_t<T1__, T2__, T3__,
+T4__>
+stan_proba_inf(const int& max_cluster_size, const T1__& R, const T2__& k,
+               const T3__& mutation_proba, const T4__& detection_proba,
+               std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T1__, T2__, T3__, T4__>;
+  const static bool propto__ = true;
+  (void) propto__;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  (void) DUMMY_VAR__;  // suppress unused var warning
+  
+  try {
+    local_scalar_t__ extinction_proba_zero;
+    extinction_proba_zero = DUMMY_VAR__;
+    
+    current_statement__ = 194;
+    extinction_proba_zero = root_newton_extinction(R, k, mutation_proba,
+                              1000, 1e-12, 0.5, pstream__);
+    local_scalar_t__ proba_bigger_zero;
+    proba_bigger_zero = DUMMY_VAR__;
+    
+    current_statement__ = 195;
+    proba_bigger_zero = stan_cluster_size_proba_bigger_zero(max_cluster_size,
+                          R, k, mutation_proba, detection_proba, pstream__);
+    local_scalar_t__ result;
+    result = DUMMY_VAR__;
+    
+    current_statement__ = 196;
+    result = (1 -
+               ((extinction_proba_zero - (1 - proba_bigger_zero)) /
+                 proba_bigger_zero));
+    current_statement__ = 197;
+    return result;
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+      // Next line prevents compiler griping about no return
+      throw std::runtime_error("*** IF YOU SEE THIS, PLEASE REPORT A BUG ***"); 
+  }
+  
+}
+struct stan_proba_inf_functor__ {
+template <typename T1__, typename T2__, typename T3__, typename T4__>
+stan::promote_args_t<T1__, T2__, T3__,
+T4__>
+operator()(const int& max_cluster_size, const T1__& R, const T2__& k,
+           const T3__& mutation_proba, const T4__& detection_proba,
+           std::ostream* pstream__)  const 
+{
+return stan_proba_inf(max_cluster_size, R, k, mutation_proba,
+         detection_proba, pstream__);
+}
+};
+template <bool propto__, typename T2__, typename T3__, typename T4__,
+typename T5__>
+stan::promote_args_t<T2__, T3__, T4__,
+T5__>
+stan_likelihood_log(const std::vector<int>& clusters_size,
+                    const std::vector<int>& clusters_freq, const T2__& R,
+                    const T3__& k, const T4__& mutation_proba,
+                    const T5__& detection_proba, std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T2__, T3__, T4__, T5__>;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  (void) DUMMY_VAR__;  // suppress unused var warning
+  
+  try {
+    int n_clusters_size;
+    n_clusters_size = std::numeric_limits<int>::min();
+    
+    current_statement__ = 199;
+    n_clusters_size = num_elements(clusters_size);
+    int upper_limit_size_identical_sequence_clusters;
+    upper_limit_size_identical_sequence_clusters = std::numeric_limits<int>::min();
+    
+    current_statement__ = 200;
+    upper_limit_size_identical_sequence_clusters = std::max(
+                                                     (determine_scaling_factor(
+                                                        (2 / detection_proba), pstream__)
+                                                       * max(clusters_size)),
+                                                     (max(clusters_size) +
+                                                       500));
+    local_scalar_t__ log_R_d_k;
+    log_R_d_k = DUMMY_VAR__;
+    
+    current_statement__ = 201;
+    log_R_d_k = stan::math::log(((R * (1 - mutation_proba)) / k));
+    local_scalar_t__ log_one_p_R_d_k;
+    log_one_p_R_d_k = DUMMY_VAR__;
+    
+    current_statement__ = 202;
+    log_one_p_R_d_k = stan::math::log((1 + ((R * (1 - mutation_proba)) / k)));
+    local_scalar_t__ log_detection_proba;
+    log_detection_proba = DUMMY_VAR__;
+    
+    current_statement__ = 203;
+    log_detection_proba = stan::math::log(detection_proba);
+    local_scalar_t__ log_1_m_detection_proba;
+    log_1_m_detection_proba = DUMMY_VAR__;
+    
+    current_statement__ = 204;
+    log_1_m_detection_proba = stan::math::log((1 - detection_proba));
+    local_scalar_t__ log_proba_detect_ident_seq_tree_size_bigger_zero;
+    log_proba_detect_ident_seq_tree_size_bigger_zero = DUMMY_VAR__;
+    
+    current_statement__ = 206;
+    validate_non_negative_index("log_sums",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> log_sums;
+    log_sums = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 207;
+    assign(log_sums, nil_index_list(),
+      rep_array(0.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable log_sums");
+    current_statement__ = 208;
+    validate_non_negative_index("result_temp",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> result_temp;
+    result_temp = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 209;
+    assign(result_temp, nil_index_list(),
+      rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable result_temp");
+    current_statement__ = 210;
+    validate_non_negative_index("distribution_size_ident_seq_tree",
+                                "upper_limit_size_identical_sequence_clusters",
+                                upper_limit_size_identical_sequence_clusters);
+    std::vector<local_scalar_t__> distribution_size_ident_seq_tree;
+    distribution_size_ident_seq_tree = std::vector<local_scalar_t__>(upper_limit_size_identical_sequence_clusters, DUMMY_VAR__);
+    
+    current_statement__ = 211;
+    assign(distribution_size_ident_seq_tree, nil_index_list(),
+      rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
+      "assigning variable distribution_size_ident_seq_tree");
+    current_statement__ = 212;
+    validate_non_negative_index("distribution_size_ident_seq_tree_detection",
+                                "n_clusters_size", n_clusters_size);
+    std::vector<local_scalar_t__> distribution_size_ident_seq_tree_detection;
+    distribution_size_ident_seq_tree_detection = std::vector<local_scalar_t__>(n_clusters_size, DUMMY_VAR__);
+    
+    current_statement__ = 213;
+    assign(distribution_size_ident_seq_tree_detection, nil_index_list(),
+      rep_array(-10000.0, n_clusters_size),
+      "assigning variable distribution_size_ident_seq_tree_detection");
+    current_statement__ = 214;
+    validate_non_negative_index("likelihood", "n_clusters_size",
+                                n_clusters_size);
+    std::vector<local_scalar_t__> likelihood;
+    likelihood = std::vector<local_scalar_t__>(n_clusters_size, DUMMY_VAR__);
+    
+    current_statement__ = 215;
+    assign(likelihood, nil_index_list(),
+      rep_array(-10000.0, n_clusters_size), "assigning variable likelihood");
+    current_statement__ = 218;
+    for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters; ++ii) {
+      current_statement__ = 216;
+      assign(distribution_size_ident_seq_tree,
+        cons_list(index_uni(ii), nil_index_list()),
+        ((((stan::math::lgamma((((k * ii) + ii) - 1)) -
+             stan::math::lgamma((k * ii))) - stan::math::lgamma((ii + 1))) +
+           ((ii - 1) * log_R_d_k)) -
+          ((((k * ii) + ii) - 1) * log_one_p_R_d_k)),
+        "assigning variable distribution_size_ident_seq_tree");}
+    current_statement__ = 236;
+    if (logical_eq(detection_proba, 1.0)) {
+      current_statement__ = 234;
+      for (int ii = 1; ii <= n_clusters_size; ++ii) {
+        current_statement__ = 233;
+        assign(distribution_size_ident_seq_tree_detection,
+          cons_list(index_uni(ii), nil_index_list()),
+          distribution_size_ident_seq_tree[(clusters_size[(ii - 1)] - 1)],
+          "assigning variable distribution_size_ident_seq_tree_detection");}
+    } else {
+      current_statement__ = 220;
+      for (int ii = 2; ii <= upper_limit_size_identical_sequence_clusters;
+           ++ii) {
+        current_statement__ = 219;
+        assign(log_sums, cons_list(index_uni(ii), nil_index_list()),
+          (log_sums[(ii - 1)] +
+            (log_sums[((ii - 1) - 1)] + stan::math::log(ii))),
+          "assigning variable log_sums");}
+      current_statement__ = 222;
+      for (int ii = 1; ii <= upper_limit_size_identical_sequence_clusters;
+           ++ii) {
+        current_statement__ = 221;
+        assign(result_temp, cons_list(index_uni(ii), nil_index_list()),
+          ((ii * log_1_m_detection_proba) +
+            distribution_size_ident_seq_tree[(ii - 1)]),
+          "assigning variable result_temp");}
+      current_statement__ = 223;
+      log_proba_detect_ident_seq_tree_size_bigger_zero = stan::math::log(
+                                                           (1 -
+                                                             stan::math::exp(
+                                                               log_sum_exp(
+                                                                 result_temp))));
+      current_statement__ = 231;
+      for (int jj = 1; jj <= n_clusters_size; ++jj) {
+        current_statement__ = 229;
+        if (logical_neq(clusters_freq[(jj - 1)], 0)) {
+          current_statement__ = 224;
+          assign(result_temp, nil_index_list(),
+            rep_array(-10000.0, upper_limit_size_identical_sequence_clusters),
+            "assigning variable result_temp");
+          current_statement__ = 226;
+          for (int ii = clusters_size[(jj - 1)];
+               ii <= upper_limit_size_identical_sequence_clusters; ++ii) {
+            current_statement__ = 225;
+            assign(result_temp, cons_list(index_uni(ii), nil_index_list()),
+              (((((log_sums[(ii - 1)] -
+                    log_sums[(clusters_size[(jj - 1)] - 1)]) -
+                   log_sums[(std::max((ii - clusters_size[(jj - 1)]), 1) - 1)])
+                  + (clusters_size[(jj - 1)] * log_detection_proba)) +
+                 ((ii - clusters_size[(jj - 1)]) * log_1_m_detection_proba))
+                + distribution_size_ident_seq_tree[(ii - 1)]),
+              "assigning variable result_temp");}
+          current_statement__ = 227;
+          assign(distribution_size_ident_seq_tree_detection,
+            cons_list(index_uni(jj), nil_index_list()),
+            (log_sum_exp(
+               tail(result_temp,
+                 ((upper_limit_size_identical_sequence_clusters -
+                    clusters_size[(jj - 1)]) + 1))) -
+              log_proba_detect_ident_seq_tree_size_bigger_zero),
+            "assigning variable distribution_size_ident_seq_tree_detection");
+        } }
+    }
+    current_statement__ = 239;
+    for (int ii = 1; ii <= n_clusters_size; ++ii) {
+      current_statement__ = 237;
+      assign(likelihood, cons_list(index_uni(ii), nil_index_list()),
+        (clusters_freq[(ii - 1)] *
+          distribution_size_ident_seq_tree_detection[(ii - 1)]),
+        "assigning variable likelihood");}
+    current_statement__ = 240;
+    return sum(likelihood);
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+      // Next line prevents compiler griping about no return
+      throw std::runtime_error("*** IF YOU SEE THIS, PLEASE REPORT A BUG ***"); 
+  }
+  
+}
+struct stan_likelihood_log_functor__ {
+template <bool propto__, typename T2__, typename T3__, typename T4__,
+typename T5__>
+stan::promote_args_t<T2__, T3__, T4__,
+T5__>
+operator()(const std::vector<int>& clusters_size,
+           const std::vector<int>& clusters_freq, const T2__& R,
+           const T3__& k, const T4__& mutation_proba,
+           const T5__& detection_proba, std::ostream* pstream__)  const 
+{
+return stan_likelihood_log<propto__>(clusters_size, clusters_freq, R, k,
+         mutation_proba, detection_proba, pstream__);
+}
+};
+template <typename T3__, typename T4__, typename T5__, typename T6__>
+stan::promote_args_t<T3__, T4__, T5__,
+T6__>
+estRodis_stan_likelihood_log_inf_improved(const std::vector<int>& clusters_size,
+                                          const std::vector<int>& clusters_freq,
+                                          const int& max_cluster_size,
+                                          const T3__& R, const T4__& k,
+                                          const T5__& mutation_proba,
+                                          const T6__& detection_proba,
+                                          std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T3__, T4__, T5__, T6__>;
+  const static bool propto__ = true;
+  (void) propto__;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  (void) DUMMY_VAR__;  // suppress unused var warning
+  
+  try {
+    int n_clusters_size;
+    n_clusters_size = std::numeric_limits<int>::min();
+    
+    current_statement__ = 242;
+    n_clusters_size = num_elements(clusters_size);
+    current_statement__ = 243;
+    validate_non_negative_index("clusters_size_finite",
+                                "n_clusters_size - 1", (n_clusters_size - 1));
+    std::vector<int> clusters_size_finite;
+    clusters_size_finite = std::vector<int>((n_clusters_size - 1), std::numeric_limits<int>::min());
+    
+    current_statement__ = 244;
+    assign(clusters_size_finite, nil_index_list(),
+      rep_array(0, (n_clusters_size - 1)),
+      "assigning variable clusters_size_finite");
+    current_statement__ = 245;
+    validate_non_negative_index("clusters_freq_finite",
+                                "n_clusters_size - 1", (n_clusters_size - 1));
+    std::vector<int> clusters_freq_finite;
+    clusters_freq_finite = std::vector<int>((n_clusters_size - 1), std::numeric_limits<int>::min());
+    
+    current_statement__ = 246;
+    assign(clusters_freq_finite, nil_index_list(),
+      rep_array(0, (n_clusters_size - 1)),
+      "assigning variable clusters_freq_finite");
+    local_scalar_t__ proba_inf;
+    proba_inf = DUMMY_VAR__;
+    
+    current_statement__ = 247;
+    proba_inf = stan_proba_inf(max_cluster_size, R, k, mutation_proba,
+                  detection_proba, pstream__);
+    local_scalar_t__ log_proba_inf;
+    log_proba_inf = DUMMY_VAR__;
+    
+    current_statement__ = 248;
+    log_proba_inf = 0.0;
+    local_scalar_t__ likelihood_finite;
+    likelihood_finite = DUMMY_VAR__;
+    
+    current_statement__ = 249;
+    likelihood_finite = 0.0;
+    local_scalar_t__ result;
+    result = DUMMY_VAR__;
+    
+    current_statement__ = 250;
+    result = 0.0;
+    current_statement__ = 263;
+    if (logical_lt(((1.0 - mutation_proba) * R), 1.0)) {
+      current_statement__ = 261;
+      result = stan_likelihood_log<false>(clusters_size, clusters_freq, R, k,
+                 mutation_proba, detection_proba, pstream__);
+    } else {
+      current_statement__ = 254;
+      for (int ii = 1; ii <= (n_clusters_size - 1); ++ii) {
+        current_statement__ = 251;
+        assign(clusters_size_finite,
+          cons_list(index_uni(ii), nil_index_list()),
+          clusters_size[(ii - 1)], "assigning variable clusters_size_finite");
+        current_statement__ = 252;
+        assign(clusters_freq_finite,
+          cons_list(index_uni(ii), nil_index_list()),
+          clusters_freq[(ii - 1)], "assigning variable clusters_freq_finite");
+      }
+      current_statement__ = 255;
+      likelihood_finite = stan_likelihood_log<false>(clusters_size_finite,
+                            clusters_freq_finite, R, k, mutation_proba,
+                            detection_proba, pstream__);
+      current_statement__ = 258;
+      if (logical_gt(proba_inf, 0.0)) {
+        current_statement__ = 256;
+        log_proba_inf = stan::math::log(proba_inf);
+      } 
+      current_statement__ = 259;
+      result = (likelihood_finite +
+                 (clusters_freq[(n_clusters_size - 1)] * log_proba_inf));
+    }
+    current_statement__ = 264;
+    return result;
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+      // Next line prevents compiler griping about no return
+      throw std::runtime_error("*** IF YOU SEE THIS, PLEASE REPORT A BUG ***"); 
+  }
+  
+}
+struct estRodis_stan_likelihood_log_inf_improved_functor__ {
+template <typename T3__, typename T4__, typename T5__, typename T6__>
+stan::promote_args_t<T3__, T4__, T5__,
+T6__>
+operator()(const std::vector<int>& clusters_size,
+           const std::vector<int>& clusters_freq,
+           const int& max_cluster_size, const T3__& R, const T4__& k,
+           const T5__& mutation_proba, const T6__& detection_proba,
+           std::ostream* pstream__)  const 
+{
+return estRodis_stan_likelihood_log_inf_improved(clusters_size,
+         clusters_freq, max_cluster_size, R, k, mutation_proba,
+         detection_proba, pstream__);
 }
 };
 #include <stan_meta_header.hpp>
