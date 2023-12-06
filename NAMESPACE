@@ -2,6 +2,7 @@
 
 export(estRodis_estimate_parameters_one)
 export(estRodis_estimate_parameters_test)
+export(estRodis_estimate_parameters_test_simple)
 export(estRodis_estimate_parameters_two)
 export(estRodis_init_params_model_one)
 export(estRodis_init_params_model_two)
