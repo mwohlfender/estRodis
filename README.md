@@ -10,7 +10,7 @@ R package for estimating the effective reproduction number, the dispersion param
 ## (C) How to use the R package estRodis
 
 
-## (D) Detailed information on content of repository
+## (D) Short description of the functionality of the R package estRodis
 
 The R package estRodis contains nine functions. Short introductions of all functions are provided below, more detailed information on input and output values can be found in the documentation of the respective function within the R package.
 
