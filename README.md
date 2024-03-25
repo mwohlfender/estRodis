@@ -1,5 +1,5 @@
 # R package estRodis
-R package for estimating the effective reproduction number, the dispersion parameter and the testing probability from the sequence cluster size distribution. The theoretical background and a use case of the package's functionalities are presented in (ADD LINK TO PAPER).
+estRodis is an R package for statistical analyses in the field of infectious disease dynamics. More precisely, for estimating the effective reproduction number, the dispersion parameter and the testing probability from the sequence cluster size distribution. The theoretical background and a use case of the package's functionalities are presented in (ADD LINK TO PAPER).
 
 ## (A) Overview of content of repository
 
