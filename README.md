@@ -1,10 +1,15 @@
 # R package estRodis
-R package for estimating the effective reproduction number, the dispersion parameter and the testing probability from the sequence cluster size distribution
+R package for estimating the effective reproduction number, the dispersion parameter and the testing probability from the sequence cluster size distribution.
 
 ## (A) Overview of content of repository
 
 
 ## (B) How to install the R package estRodis
+
+Install newest version of estRodis package
+`devtools::install_github("mwohlfender/estRodis_test@v0.0.1-zeta", ref = "main", force = TRUE)`
+
+`devtools::install_github("mwohlfender/estRodis_test", ref = "main", force = TRUE)`
 
 
 ## (C) How to use the R package estRodis
