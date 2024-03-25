@@ -6,11 +6,11 @@ R package for estimating the effective reproduction number, the dispersion param
 
 ## (B) How to install the R package estRodis
 
-Install newest version of estRodis package
-`devtools::install_github("mwohlfender/estRodis_test@v0.0.1-zeta", ref = "main", force = TRUE)`
-
+R code to install the latest stable release of the estRodis package:
 `devtools::install_github("mwohlfender/estRodis_test", ref = "main", force = TRUE)`
 
+R code to install the newest development version of the estRodis package:
+`devtools::install_github("mwohlfender/estRodis_test@v0.0.1-zeta", ref = "main", force = TRUE)`
 
 ## (C) How to use the R package estRodis
 
