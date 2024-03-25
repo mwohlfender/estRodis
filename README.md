@@ -37,8 +37,21 @@ estRodis_estimate_parameters_one(
   clusters_freq = simulated_clusters$frequency,
   sequencing_proba = 0.44)
 ```
+### (D2) Simulate data and apply model one
 
+```
+simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
+max_cluster_size = 2500, R = 0.8, k = 0.3, yearly_mutation_rate = 14,
+mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
 
+options(mc.cores = parallelly::availableCores())
+
+estRodis_estimate_parameters_two(
+  clusters_size = simulated_clusters$size,
+  clusters_freq = simulated_clusters$frequency,
+  testing_proba = 0.55,
+  sequencing_proba = 0.44)
+```
 
 ## (E) Short description of the functionality of the R package estRodis
 
