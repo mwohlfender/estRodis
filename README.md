@@ -37,7 +37,7 @@ estRodis_estimate_parameters_one(
   clusters_freq = simulated_clusters$frequency,
   sequencing_proba = 0.44)
 ```
-### (D2) Simulate data and apply model one
+### (D2) Simulate data and apply model two
 
 ```
 simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
