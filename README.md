@@ -7,7 +7,10 @@ At the heart of the R-package estRodis are functions to simulate the size distri
 
 ## (B) General remarks
 
-### Name convention
+### B.1 Use case
+The code used for the statistical analysis of the paper (ADD LINK TO PAPER), which is a use case of the estRodis package, can be found here: (ADD LINK TO GITHUB REPO)
+
+### B.2 Name convention
 Whenever "model one" is mentioned in comments in the code, this refers to the standard model developed in the paper (prior distribution for testing probability) and "model two" refers to the alternative model described in the section "Sensitivity analysis" of the supplementary material (fixed value for testing probability).
 
 ## (C) How to install the R package estRodis
