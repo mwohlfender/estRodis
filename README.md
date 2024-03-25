@@ -3,48 +3,56 @@ R package for estimating the effective reproduction number, the dispersion param
 
 ## (A) Overview of content of repository
 
+## (B) General remarks
 
-## (B) How to install the R package estRodis
+
+Whenever "model one" is mentioned in comments in the code, this refers to the standard model developed in the paper and "model two" refers to the alternative model described in the section "Sensitivity analysis" of the supplementary material.
+
+
+## (C) How to install the R package estRodis
 
 R code to install the latest stable release of the estRodis package: \
-`devtools::install_github("mwohlfender/estRodis_test", ref = "main", force = TRUE)`
+`devtools::install_github("mwohlfender/estRodis", ref = "main", force = TRUE)`
 
 R code to install the newest development version of the estRodis package: \
-`devtools::install_github("mwohlfender/estRodis_test@v0.0.1-zeta", ref = "main", force = TRUE)`
+`devtools::install_github("mwohlfender/estRodis@v0.0.1-zeta", ref = "main", force = TRUE)`
 
-## (C) How to use the R package estRodis
+## (D) How to use the R package estRodis
 
 
-## (D) Short description of the functionality of the R package estRodis
+## (E) Short description of the functionality of the R package estRodis
 
 The R package estRodis contains nine functions. Short introductions of all functions are provided below, more detailed information on input and output values can be found in the documentation of the respective function within the R package.
 
-### D.1 estimate parameters model one
-Apply model one to estimate parameters from the sequence cluster size distribution.
-
-### D.2 estimate parameters model two
-Apply model two to estimate parameters from the sequence cluster size distribution.
-
-### D.3 initialize parameters model one
-Determine initial values for model one.
-
-### D.4 initialize parameters model two
-Determine initial values for model two.
-
-### D.5 scaled beta distribution
-Probability density function of a scaled version of the beta distribution. (ADD FORMULA)
-
-### D.6 simulate cluster sizes
+### E.1 simulate cluster sizes
 Simulate the size of identical sequence clusters.
 
-### D.7 simulate transmission chain
+### E.2 simulate transmission chain
 Simulate a transmission chain.
 
-### D.8 plot transmission chain
+### E.3 plot transmission chain
 Create a plot of a transmission chain.
 
-### D.9 plot transmission chain with mutations
+### E.4 plot transmission chain with mutations
 Create a plot of a transmission chain including mutations of the viral genome.
+
+### E.5 estimate parameters model one
+Apply model one to estimate parameters from the sequence cluster size distribution.
+
+### E.6 estimate parameters model two
+Apply model two to estimate parameters from the sequence cluster size distribution.
+
+### E.7 initialize parameters model one
+Determine initial values for model one.
+
+### E.8 initialize parameters model two
+Determine initial values for model two.
+
+### E.9 scaled beta distribution
+Probability density function of a scaled version of the beta distribution. (ADD FORMULA) 
+This distribution is used as prior distribution of the testing probability in model one.
+
+
 
 
 
