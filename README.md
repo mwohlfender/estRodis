@@ -55,7 +55,23 @@ estRodis_estimate_parameters_one(
 ```
 Result:
 ```
+Inference for Stan model: estRodis_stan_model_estimate_parameters_one.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
 
+                            mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
+R                           0.81    0.00 0.06     0.71     0.76     0.80     0.85     0.95  1171    1
+k                           0.34    0.00 0.08     0.19     0.28     0.33     0.39     0.53  1813    1
+number_yearly_mutations    13.99    0.01 0.49    13.00    13.66    13.99    14.31    14.95  2254    1
+testing_proba               0.60    0.01 0.24     0.15     0.41     0.62     0.81     0.99  1061    1
+mutation_proba              0.18    0.00 0.01     0.17     0.18     0.18     0.18     0.19  2252    1
+detection_proba             0.27    0.00 0.11     0.07     0.18     0.27     0.36     0.43  1061    1
+lp__                    -1156.67    0.04 1.54 -1160.57 -1157.41 -1156.29 -1155.53 -1154.84  1200    1
+
+Samples were drawn using NUTS(diag_e) at Tue Mar 26 11:01:36 2024.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).
 ```
 ### (D2) Simulate data and apply model two
 
