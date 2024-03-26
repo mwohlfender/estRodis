@@ -16,10 +16,10 @@ Whenever "model one" is mentioned in comments in the code, this refers to the st
 ## (C) How to install the R package estRodis
 
 R code to install the latest stable release of the estRodis package: \
-`devtools::install_github("mwohlfender/estRodis", ref = "main", force = TRUE)`
+```devtools::install_github("mwohlfender/estRodis", ref = "main", force = TRUE)```
 
 R code to install the newest development version of the estRodis package: \
-`devtools::install_github("mwohlfender/estRodis@v0.0.1-zeta", ref = "main", force = TRUE)`
+```devtools::install_github("mwohlfender/estRodis@v0.0.1-zeta", ref = "main", force = TRUE)```
 
 ## (D) How to use the R package estRodis
 
