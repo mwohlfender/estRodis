@@ -39,6 +39,12 @@ Result:
 | 2 | 111     |
 | 3    | 59    |
 
+
+|   |   |
+|---|---|
+|__size__| 1 | 2 |
+| frequency | 725 | 111 |
+
 Next, we apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the simulated clusters.
 ```
 options(mc.cores = parallelly::availableCores())
