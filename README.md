@@ -27,9 +27,7 @@ R code to install the newest development version of the estRodis package: \
 
 We simulate 1000 identical sequence clusters. 
 ```
-simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
-max_cluster_size = 2500, R = 0.8, k = 0.3, yearly_mutation_rate = 14,
-mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
+simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000, max_cluster_size = 2500, R = 0.8, k = 0.3, yearly_mutation_rate = 14, mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
 ```
 Result:
 
