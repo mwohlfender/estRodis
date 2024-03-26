@@ -23,7 +23,8 @@ R code to install the newest development version of the estRodis package: \
 
 ## (D) How to use the R package estRodis
 
-### (D1) Simulate data and apply model one
+In the following we present code examples how to use the main functionalities of the R package estRodis.
+### (D1) Simulate data
 
 We simulate 1000 identical sequence clusters. 
 ```
@@ -44,14 +45,15 @@ Result:
 |__frequency__| 725 | 111 | 59 | 31 | 16 | 13| 10 | 3 | 6 | 2 | 3 | 4 | 4 | 2 | 4 | 1 | 2 | 1 | 1 | 1 | 1 |
 |__percentage__| 0.725 | 0.111 | 0.059 | 0.031 | 0.016 | 0.013 | 0.01 | 0.003 | 0.006 | 0.002 | 0.003 | 0.004 | 0.004 | 0.002 | 0.004 | 0.001 | 0.002 | 0.001 | 0.001 | 0.001 | 0.001|
 
-Next, we apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the simulated clusters.
+### (D2) Apply model one
+
+We apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the clusters we simulated in section (D1).
 ```
 options(mc.cores = parallelly::availableCores())
 
-estRodis_estimate_parameters_one(
-  clusters_size = simulated_clusters$size,
-  clusters_freq = simulated_clusters$frequency,
-  sequencing_proba = 0.44)
+estRodis_estimate_parameters_one(clusters_size = simulated_clusters$size,
+                                 clusters_freq = simulated_clusters$frequency,
+                                 sequencing_proba = 0.44)
 ```
 Result:
 ```
@@ -73,20 +75,34 @@ For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).
 ```
-### (D2) Simulate data and apply model two
+### (D3) Apply model two
 
+We apply model two to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the clusters we simulated in section (D1).
 ```
-simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
-max_cluster_size = 2500, R = 0.8, k = 0.3, yearly_mutation_rate = 14,
-mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
-
 options(mc.cores = parallelly::availableCores())
 
-estRodis_estimate_parameters_two(
-  clusters_size = simulated_clusters$size,
-  clusters_freq = simulated_clusters$frequency,
-  testing_proba = 0.55,
-  sequencing_proba = 0.44)
+estRodis_estimate_parameters_two(clusters_size = simulated_clusters$size,
+                                 clusters_freq = simulated_clusters$frequency,
+                                 testing_proba = 0.55,
+                                 sequencing_proba = 0.44)
+```
+Result:
+```
+Inference for Stan model: estRodis_stan_model_estimate_parameters_two.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+                            mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
+R                           0.81    0.00 0.02     0.76     0.79     0.81     0.83     0.86  3181    1
+k                           0.34    0.00 0.07     0.22     0.29     0.33     0.38     0.51  2630    1
+number_yearly_mutations    14.01    0.01 0.51    13.04    13.66    14.00    14.34    15.02  2763    1
+mutation_proba              0.18    0.00 0.01     0.17     0.18     0.18     0.18     0.19  2761    1
+lp__                    -1154.64    0.03 1.22 -1157.85 -1155.19 -1154.32 -1153.76 -1153.24  2102    1
+
+Samples were drawn using NUTS(diag_e) at Tue Mar 26 11:09:22 2024.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).
 ```
 
 ## (E) Short description of the functionality of the R package estRodis
