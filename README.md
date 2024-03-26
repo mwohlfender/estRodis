@@ -33,16 +33,11 @@ mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
 ```
 Result:
 
-| size    | frequency |
-| -------- | ------- |
-| 1  | 725    |
-| 2 | 111     |
-| 3    | 59    |
-
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |__size__| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 19 | 20 | 22 | 24 | 26 |
 |__frequency__| 725 | 111 | 59 | 31 | 16 | 13| 10 | 3 | 6 | 2 | 3 | 4 | 4 | 2 | 4 | 1 | 2 | 1 | 1 | 1 | 1 |
+|__percentage__| 0.725 | 0.111 | 0.059 | 0.031 | 0.016 | 0.013 | 0.01 | 0.003 | 0.006 | 0.002 | 0.003 | 0.004 | 0.004 | 0.002 | 0.004 | 0.001 | 0.002 | 0.001 | 0.001 | 0.001 | 0.001|
 
 Next, we apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the simulated clusters.
 ```
