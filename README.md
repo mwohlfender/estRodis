@@ -25,17 +25,32 @@ R code to install the newest development version of the estRodis package: \
 
 ### (D1) Simulate data and apply model one
 
+We simulate 1000 identical sequence clusters. 
 ```
 simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
 max_cluster_size = 2500, R = 0.8, k = 0.3, yearly_mutation_rate = 14,
 mean_generation_interval = 5.2, testing_proba = 0.6, sequencing_proba = 0.4)
-
+```
+Result:
+```
+| size    | frequency |
+| -------- | ------- |
+| 1  | 725    |
+| 2 | 111     |
+| 3    | 59    |
+```
+Next, we apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the simulated clusters.
+```
 options(mc.cores = parallelly::availableCores())
 
 estRodis_estimate_parameters_one(
   clusters_size = simulated_clusters$size,
   clusters_freq = simulated_clusters$frequency,
   sequencing_proba = 0.44)
+```
+Result:
+```
+
 ```
 ### (D2) Simulate data and apply model two
 
