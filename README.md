@@ -40,9 +40,9 @@ Result:
 | 3    | 59    |
 
 |   |   |
-|---|---|
-|__size__| 1 | 2 |
-|__frequency__| 725 | 111 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|__size__| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 19 | 20 | 22 | 24 | 26 |
+|__frequency__| 725 | 111 | 59 | 31 | 16 | 13| 10 | 3 | 6 | 2 | 3 | 4 | 4 | 2 | 4 | 1 | 2 | 1 | 1 | 1 | 1 |
 
 Next, we apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the simulated clusters.
 ```
