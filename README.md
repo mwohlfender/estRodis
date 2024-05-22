@@ -8,7 +8,7 @@ At the heart of the R-package estRodis are functions to simulate the size distri
 ## (B) General remarks
 
 ### B.1 Use case
-The code used for the statistical analysis of the paper (ADD LINK TO PAPER), which is a use case of the estRodis package, can be found here: (ADD LINK TO GITHUB REPO)
+The code used for the statistical analysis of the paper (ADD LINK TO PAPER), which is a use case of the estRodis package, can be found here: [GitHub Martin Wohlfender](https://github.com/mwohlfender/R_overdispersion_cluster_size)
 
 ### B.2 Name convention
 Whenever "model one" is mentioned in comments in the code, this refers to the standard model developed in the paper (prior distribution for testing probability) and "model two" refers to the alternative model described in the section "Sensitivity analysis" of the supplementary material (fixed value for testing probability).
@@ -134,7 +134,10 @@ Determine initial values for model one.
 Determine initial values for model two.
 
 ### E.9 scaled beta distribution
-Probability density function of a scaled version of the beta distribution. (ADD FORMULA) 
+Probability density function of a scaled version of the beta distribution. 
+
+$ f \left( x \right) = \frac{ \left( x - 0.05 \right)^{ \alpha - 1 } \left( 1 - x \right)^{ \beta - 1 }}{ \left( 1 - 0.05 \right)^{ \alpha + \beta - 1 }} \frac{\Gamma \left( \alpha + \beta \right) }{ \Gamma \left( \alpha \right) \Gamma \left( \beta \right)} \quad \forall \, x  \in \left[ 0.05, \; 1 \right] $
+
 This distribution is used as prior distribution of the testing probability in model one.
 
 
