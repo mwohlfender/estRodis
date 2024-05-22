@@ -136,7 +136,7 @@ Determine initial values for model two.
 ### E.9 scaled beta distribution
 Probability density function of a scaled version of the beta distribution. 
 
-$ f \left( x \right) = \frac{ \left( x - 0.05 \right)^{ \alpha - 1 } \left( 1 - x \right)^{ \beta - 1 }}{ \left( 1 - 0.05 \right)^{ \alpha + \beta - 1 }} \frac{\Gamma \left( \alpha + \beta \right) }{ \Gamma \left( \alpha \right) \Gamma \left( \beta \right)} \quad \forall \, x  \in \left[ 0.05, \; 1 \right] $
+$$ f \left( x \right) = \frac{ \left( x - 0.05 \right)^{ \alpha - 1 } \left( 1 - x \right)^{ \beta - 1 }}{ \left( 1 - 0.05 \right)^{ \alpha + \beta - 1 }}  $$
 
 This distribution is used as prior distribution of the testing probability in model one.
 
