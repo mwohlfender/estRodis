@@ -8,7 +8,7 @@ At the heart of the R-package estRodis are functions to simulate the size distri
 ## (B) General remarks
 
 ### B.1 Use case
-The code used for the statistical analysis of the paper (LINK TO PAPER WILL BE ADDED SOON), which is a use case of the estRodis package, can be found here: [GitHub Martin Wohlfender](https://github.com/mwohlfender/R_overdispersion_cluster_size)
+The code used for the statistical analysis of the paper "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al. (see [medRxiv](https://www.medrxiv.org/content/10.1101/2024.05.26.24307940v1)), which is a use case of the estRodis package, can be found here: [GitHub Martin Wohlfender](https://github.com/mwohlfender/R_overdispersion_cluster_size)
 
 ### B.2 Name convention
 Whenever "model one" is mentioned in comments in the code, this refers to the standard model developed in the paper (prior distribution for testing probability) and "model two" refers to the alternative model described in the section "Sensitivity analysis" of the supplementary material (fixed value for testing probability).
