@@ -8,6 +8,7 @@
 #' @param max_generation Maximum generation of nodes and edges that are included into the plot
 #' @param colour_nodes_edges Colour for nodes and edges
 #' @param style_plot Positioning of transmission chain on canvas
+#' @param width_edges Width of edges of graph
 #'
 #' @details The data frame `transmission_chain_nodes` has to contain at least the columns `node_key` (id of node)
 #' and `generation` (generation of nodes).
@@ -38,7 +39,8 @@ estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
                                              transmission_chain_edges,
                                              max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),
                                              colour_nodes_edges = "navyblue",
-                                             style_plot = "flexible") {
+                                             style_plot = "flexible",
+                                             width_edges = 1) {
 
   # #' @examples transmission_chain <- estRodis_simulate_transmission_chain()
   # #' transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
@@ -94,7 +96,7 @@ estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
                                                                               yend = .data$y_to,
                                                                               edge_colour = factor((.data$generation <= max_generation) - (.data$generation > max_generation))),
                                                        edge_linetype = "solid",
-                                                       edge_width = 1)} +
+                                                       edge_width = width_edges)} +
     {if (nrow(plot_edges) >= 1) ggraph::scale_edge_color_manual(name = "Identical sequence cluster:",
                                                                 breaks = c(1, -1),
                                                                 limits = factor(c(1, -1)),

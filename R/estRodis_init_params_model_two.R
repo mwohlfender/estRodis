@@ -1,7 +1,7 @@
 
 #' @title Initial values for Model 2
 #'
-#' @description Sample from prior distributions of R, k, the number of yearly mutations and the testing probability.
+#' @description Sample from prior distributions of R, k and the number of yearly mutations.
 #'
 #' @param prior_r Parameters for prior distribution of R (gamma)
 #' @param prior_k Parameters for prior distribution of k (gamma)

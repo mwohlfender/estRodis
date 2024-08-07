@@ -9,7 +9,8 @@ estRodis_plot_transmission_chain(
   transmission_chain_edges,
   max_generation = max(dplyr::pull(transmission_chain_nodes, "generation")),
   colour_nodes_edges = "navyblue",
-  style_plot = "flexible"
+  style_plot = "flexible",
+  width_edges = 1
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ estRodis_plot_transmission_chain(
 \item{colour_nodes_edges}{Colour for nodes and edges}
 
 \item{style_plot}{Positioning of transmission chain on canvas}
+
+\item{width_edges}{Width of edges of graph}
 }
 \value{
 Plot of the transmission chain defined by nodes, edges and max_generation in the form of a ggplot2 object.
