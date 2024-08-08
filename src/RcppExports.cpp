@@ -12,11 +12,19 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_five_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_four_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_one_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_six_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_three_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_two_mod();
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_five_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_five_mod, 0},
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_four_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_four_mod, 0},
     {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_one_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_one_mod, 0},
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_six_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_six_mod, 0},
+    {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_three_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_three_mod, 0},
     {"_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_two_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4estRodis_stan_model_estimate_parameters_two_mod, 0},
     {NULL, NULL, 0}
 };

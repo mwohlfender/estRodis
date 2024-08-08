@@ -37,9 +37,9 @@
 #' of the size distribution of sequence clusters, in which viral transmission,
 #' the mutation of the virus, and incomplete case-detection are integrated.
 #' Parameters are estimated by a Bayesian inference model implemented in Stan.
-#' The effective reproduction number, the dispersion parameter, the number of yearly mutations
+#' The effective reproduction number, the dispersion parameter
 #' and the testing probability are included into the model with prior distributions.
-#' The mean generation interval and the sequencing probability are included into
+#' The mutation probability and the sequencing probability are included into
 #' the model as fixed parameters.
 #' More details can be found in the following paper: ADD REFERENCE
 #'
