@@ -2,7 +2,7 @@
 % Please edit documentation in R/estRodis_estimate_parameters_five.R
 \name{estRodis_estimate_parameters_five}
 \alias{estRodis_estimate_parameters_five}
-\title{Estimate parameters using Model 3}
+\title{Estimate parameters using Model 5}
 \usage{
 estRodis_estimate_parameters_five(
   clusters_size,
