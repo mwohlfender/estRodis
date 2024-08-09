@@ -46,7 +46,7 @@ estRodis_simulate_cluster_sizes <- function(n_clusters = 1000,
 
   # simulate identical sequence clusters until at least n_clusters identical sequence clusters have been created
   # convention: the size of an identical sequence cluster is the number of detected nodes that have transmitted the respective variant to their (direct) offspring (might have zero offspring)
-  while (sum(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(.data$size >= 1) |> dplyr::pull(.data$frequency)) < n_clusters) {
+  while (sum(n_nodes_identical_sequence_clusters_sim %>% dplyr::filter(.data$size >= 1) %>% dplyr::pull(.data$frequency)) < n_clusters) {
 
     # create initial case and determine whether it is detected or not
     n_free_leaves <- 1
@@ -76,6 +76,6 @@ estRodis_simulate_cluster_sizes <- function(n_clusters = 1000,
 
   }
 
-  return(n_nodes_identical_sequence_clusters_sim |> dplyr::filter(.data$frequency != 0, .data$size >= 1) |> dplyr::mutate(percentage = .data$frequency / sum(.data$frequency)))
+  return(n_nodes_identical_sequence_clusters_sim %>% dplyr::filter(.data$frequency != 0, .data$size >= 1) %>% dplyr::mutate(percentage = .data$frequency / sum(.data$frequency)))
 
 }
