@@ -146,25 +146,25 @@ estRodis_simulate_transmission_chain <- function(max_chain_size = 100,
   }
 
   # remove rows containing zero from the data frames nodes, edges and free_leaves
-  nodes <- nodes %>% dplyr::filter(nodes$node_key != 0)
+  nodes <- nodes |> dplyr::filter(nodes$node_key != 0)
 
-  edges <- edges %>% dplyr::filter(edges$from != 0 & edges$to != 0)
+  edges <- edges |> dplyr::filter(edges$from != 0 & edges$to != 0)
 
-  free_leaves <- free_leaves %>% dplyr::filter(free_leaves$node_key != 0)
+  free_leaves <- free_leaves |> dplyr::filter(free_leaves$node_key != 0)
 
 
   # add column current_variant to nodes
-  nodes <- nodes %>% dplyr::mutate(current_variant = (1 - nodes$mutation_occurred) * nodes$variant_received + nodes$mutation_occurred * nodes$variant_after_mutation)
+  nodes <- nodes |> dplyr::mutate(current_variant = (1 - nodes$mutation_occurred) * nodes$variant_received + nodes$mutation_occurred * nodes$variant_after_mutation)
 
   if (nrow(edges) >= 1) {
 
     # add information about mutation process to edges
-    edges <- edges %>% dplyr::mutate(from_variant = nodes$current_variant[edges$from],
+    edges <- edges |> dplyr::mutate(from_variant = nodes$current_variant[edges$from],
                                      to_variant = nodes$current_variant[edges$to],
                                      variant_transmitted = nodes$variant_received[edges$to])
 
     # add information about detection process to edges
-    edges <- edges %>% dplyr::mutate(from_detected = nodes$detection[edges$from],
+    edges <- edges |> dplyr::mutate(from_detected = nodes$detection[edges$from],
                                      to_detected = nodes$detection[edges$to])
 
   }

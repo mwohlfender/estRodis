@@ -7,7 +7,7 @@
 estRodis_plot_transmission_chain_mutation(
   transmission_chain_nodes,
   transmission_chain_edges,
-  max_generation = max(dplyr::pull(transmission_chain_nodes, "generation")),
+  max_generation = max(transmission_chain_nodes \%>\% dplyr::pull("generation")),
   style_plot = "flexible",
   style_legend_clusters = "flexible"
 )

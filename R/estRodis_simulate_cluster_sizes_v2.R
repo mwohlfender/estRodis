@@ -3,15 +3,14 @@
 #'
 #' @description `n_clusters` identical sequence clusters of sizes `1` to `max_cluster_size`
 #' are simulated. Viral transmission (`R` and `k`), viral mutation
-#' (`yearly_mutation_rate` and `mean_generation_interval`) and case detection
+#' (`mutation_proba`) and case detection
 #' (`testing_proba` and `sequencing_proba`) are included in the simulation.
 #'
 #' @param n_clusters Number of clusters to be simulated.
 #' @param max_cluster_size Maximal size of a simulated identical sequence cluster.
 #' @param R Effective reproduction number.
 #' @param k Dispersion parameter.
-#' @param yearly_mutation_rate Number of mutations of the viral genome per year.
-#' @param mean_generation_interval Mean generation interval.
+#' @param mutation_proba Probability that a mutation occurs at a case.
 #' @param testing_proba Probability that a case is confirmed by a test.
 #' @param sequencing_proba Probability that the genome of a confirmed case is sequenced.
 #'
@@ -25,17 +24,13 @@
 #'
 #' @examples estRodis_simulate_cluster_sizes()
 
-estRodis_simulate_cluster_sizes <- function(n_clusters = 1000,
-                                            max_cluster_size = 2500,
-                                            R = 1.0,
-                                            k = 0.3,
-                                            yearly_mutation_rate = 14,
-                                            mean_generation_interval = 5.2,
-                                            testing_proba = 0.6,
-                                            sequencing_proba = 0.4) {
-
-  # calculate mutation probability
-  mutation_proba <- 1 - exp(- yearly_mutation_rate / 365.25 * mean_generation_interval)
+estRodis_simulate_cluster_sizes_v2 <- function(n_clusters = 1000,
+                                               max_cluster_size = 2500,
+                                               R = 1.0,
+                                               k = 0.3,
+                                               mutation_proba = 0.2,
+                                               testing_proba = 0.6,
+                                               sequencing_proba = 0.4) {
 
   # calculate detection probability
   detection_proba <- testing_proba * sequencing_proba

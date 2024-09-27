@@ -7,7 +7,7 @@
 estRodis_plot_transmission_chain(
   transmission_chain_nodes,
   transmission_chain_edges,
-  max_generation = max(dplyr::pull(transmission_chain_nodes, "generation")),
+  max_generation = max(transmission_chain_nodes \%>\% dplyr::pull("generation")),
   colour_nodes_edges = "navyblue",
   style_plot = "flexible",
   width_edges = 1

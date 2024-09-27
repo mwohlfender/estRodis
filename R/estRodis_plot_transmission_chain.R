@@ -37,14 +37,14 @@
 
 estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
                                              transmission_chain_edges,
-                                             max_generation = max(transmission_chain_nodes %>% dplyr::pull("generation")),
+                                             max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),
                                              colour_nodes_edges = "navyblue",
                                              style_plot = "flexible",
                                              width_edges = 1) {
 
   # #' @examples transmission_chain <- estRodis_simulate_transmission_chain()
-  # #' transmission_chain_nodes <- transmission_chain$nodes %>% dplyr::select(c("node_key", "generation"))
-  # #' transmission_chain_edges <- transmission_chain$edges %>% dplyr::select(c("from", "to", "generation"))
+  # #' transmission_chain_nodes <- transmission_chain$nodes |> dplyr::select(c("node_key", "generation"))
+  # #' transmission_chain_edges <- transmission_chain$edges |> dplyr::select(c("from", "to", "generation"))
   # #' plot_transmission_chain <- estRodis_plot_transmission_chain(
   # #' transmission_chain_nodes = transmission_chain_nodes,
   # #' transmission_chain_edges = transmission_chain_edges,
@@ -61,8 +61,8 @@ estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
   } else {
 
     # only nodes and edges up to generation `max_generation` will be added to the plot
-    plot_nodes <- transmission_chain_nodes %>% dplyr::filter(transmission_chain_nodes$generation <= max_generation)
-    plot_edges <- transmission_chain_edges %>% dplyr::filter(transmission_chain_edges$generation <= max_generation)
+    plot_nodes <- transmission_chain_nodes |> dplyr::filter(transmission_chain_nodes$generation <= max_generation)
+    plot_edges <- transmission_chain_edges |> dplyr::filter(transmission_chain_edges$generation <= max_generation)
 
   }
 
@@ -74,15 +74,15 @@ estRodis_plot_transmission_chain <- function(transmission_chain_nodes,
   if (nrow(plot_edges) >= 1) {
 
     # add column "edge.id"
-    plot_edges <- plot_edges %>% dplyr::mutate(edge.id = 1:nrow(plot_edges))
+    plot_edges <- plot_edges |> dplyr::mutate(edge.id = 1:nrow(plot_edges))
 
     # add x and y coordinate of nodes in column "from"
-    plot_edges <- plot_edges %>% dplyr::mutate(node_key = plot_edges$from) %>% dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  %>% dplyr::select(c("node_key", "x", "y")),
-                                                                                                by = "node_key") %>% dplyr::rename("x_from" = "x", "y_from" = "y") %>% dplyr::select(-"node_key")
+    plot_edges <- plot_edges |> dplyr::mutate(node_key = plot_edges$from) |> dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  |> dplyr::select(c("node_key", "x", "y")),
+                                                                                                by = "node_key") |> dplyr::rename("x_from" = "x", "y_from" = "y") |> dplyr::select(-"node_key")
 
     # add x and y coordinate of nodes in column "to"
-    plot_edges <- plot_edges %>% dplyr::mutate(node_key = plot_edges$to) %>% dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  %>% dplyr::select(c("node_key", "x", "y")),
-                                                                                              by = "node_key") %>% dplyr::rename("x_to" = "x", "y_to" = "y") %>% dplyr::select(-"node_key")
+    plot_edges <- plot_edges |> dplyr::mutate(node_key = plot_edges$to) |> dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  |> dplyr::select(c("node_key", "x", "y")),
+                                                                                              by = "node_key") |> dplyr::rename("x_to" = "x", "y_to" = "y") |> dplyr::select(-"node_key")
 
   }
 

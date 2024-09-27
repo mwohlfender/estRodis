@@ -58,7 +58,7 @@
 
 estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
                                                       transmission_chain_edges,
-                                                      max_generation = max(transmission_chain_nodes %>% dplyr::pull("generation")),
+                                                      max_generation = max(transmission_chain_nodes |> dplyr::pull("generation")),
                                                       style_plot = "flexible",
                                                       style_legend_clusters = "flexible") {
 
@@ -81,8 +81,8 @@ estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
   } else {
 
     # only nodes and edges up to generation `max_generation` will be added to the plot
-    plot_nodes <- transmission_chain_nodes %>% dplyr::filter(transmission_chain_nodes$generation <= max_generation)
-    plot_edges <- transmission_chain_edges %>% dplyr::filter(transmission_chain_edges$generation <= max_generation)
+    plot_nodes <- transmission_chain_nodes |> dplyr::filter(transmission_chain_nodes$generation <= max_generation)
+    plot_edges <- transmission_chain_edges |> dplyr::filter(transmission_chain_edges$generation <= max_generation)
 
   }
 
@@ -90,18 +90,18 @@ estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
   if (style_legend_clusters == "fixed") {
 
     # colors of all clusters of the whole transmission chain (determined by `transmission_chain_nodes` and `transmission_chain_edges`) will be added to the legend
-    colors_clusters <- paletteer::paletteer_c("viridis::plasma", n = length(unique(transmission_chain_nodes %>% dplyr::pull("current_variant"))))
+    colors_clusters <- paletteer::paletteer_c("viridis::plasma", n = length(unique(transmission_chain_nodes |> dplyr::pull("current_variant"))))
 
   } else {
 
     # only colors of the clusters visible on the plot (nodes and edges up to generation `max_generation`) will be added to the legend
-    colors_clusters <- paletteer::paletteer_c("viridis::plasma", n = length(unique(transmission_chain_nodes %>% dplyr::filter(transmission_chain_nodes$generation <= max_generation) %>% dplyr::pull("current_variant"))))
+    colors_clusters <- paletteer::paletteer_c("viridis::plasma", n = length(unique(transmission_chain_nodes |> dplyr::filter(transmission_chain_nodes$generation <= max_generation) |> dplyr::pull("current_variant"))))
 
   }
 
   # define colors for edges visible on the plot (edges up to generation max_generation)
-  colors_transmission_chain_edges <- colors_clusters[unique(match(x = transmission_chain_edges %>% dplyr::filter(transmission_chain_edges$generation <= max_generation) %>% dplyr::pull("variant_transmitted"),
-                                                                  table = unique(transmission_chain_nodes %>% dplyr::filter(transmission_chain_nodes$generation <= max_generation) %>% dplyr::pull("current_variant"))))]
+  colors_transmission_chain_edges <- colors_clusters[unique(match(x = transmission_chain_edges |> dplyr::filter(transmission_chain_edges$generation <= max_generation) |> dplyr::pull("variant_transmitted"),
+                                                                  table = unique(transmission_chain_nodes |> dplyr::filter(transmission_chain_nodes$generation <= max_generation) |> dplyr::pull("current_variant"))))]
 
   # define graph
   graph_transmission_chain <- tidygraph::tbl_graph(nodes = plot_nodes,
@@ -111,18 +111,18 @@ estRodis_plot_transmission_chain_mutation <- function(transmission_chain_nodes,
   if (nrow(plot_edges) >= 1) {
 
     # add column "edge.id"
-    plot_edges <- plot_edges %>% dplyr::mutate(edge.id = 1:nrow(plot_edges))
+    plot_edges <- plot_edges |> dplyr::mutate(edge.id = 1:nrow(plot_edges))
 
     # add x and y coordinate of nodes in column "from"
-    plot_edges <- plot_edges %>% dplyr::mutate(node_key = plot_edges$from) %>% dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  %>% dplyr::select(c("node_key", "x", "y")),
-                                                                                              by = "node_key") %>% dplyr::rename("x_from" = "x", "y_from" = "y") %>% dplyr::select(-"node_key")
+    plot_edges <- plot_edges |> dplyr::mutate(node_key = plot_edges$from) |> dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  |> dplyr::select(c("node_key", "x", "y")),
+                                                                                              by = "node_key") |> dplyr::rename("x_from" = "x", "y_from" = "y") |> dplyr::select(-"node_key")
 
     # add x and y coordinate of nodes in column "to"
-    plot_edges <- plot_edges %>% dplyr::mutate(node_key = plot_edges$to) %>% dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  %>% dplyr::select(c("node_key", "x", "y")),
-                                                                                            by = "node_key") %>% dplyr::rename("x_to" = "x", "y_to" = "y") %>% dplyr::select(-"node_key")
+    plot_edges <- plot_edges |> dplyr::mutate(node_key = plot_edges$to) |> dplyr::left_join(create_layout(graph_transmission_chain, layout = "tree")  |> dplyr::select(c("node_key", "x", "y")),
+                                                                                            by = "node_key") |> dplyr::rename("x_to" = "x", "y_to" = "y") |> dplyr::select(-"node_key")
 
     # add column "in_same_cluster": 1 if both nodes of an edge belong to the same identical sequence cluster, 0 if not
-    plot_edges <- plot_edges %>% dplyr::mutate(in_same_cluster = as.numeric(plot_edges$from_variant == plot_edges$to_variant))
+    plot_edges <- plot_edges |> dplyr::mutate(in_same_cluster = as.numeric(plot_edges$from_variant == plot_edges$to_variant))
 
   }
 
