@@ -3,7 +3,20 @@ estRodis is an R package for statistical analyses in the field of infectious dis
 
 ## (A) Overview of content of R package estRodis
 
-At the heart of the R-package estRodis are functions to simulate the size distribution of identical sequence clusters and to estimate parameters related to transmission dynamics from the sequence cluster size distribution. The simulation is based on a mathematical model of the size distribution of identical sequence clusters that takes into account the viral transmission process, the mutation of the virus and incomplete case-detection. We described the probability that a case was detected as the product of the probability that a case was confirmed by a test and the probability that the viral genome of a confirmed case is sequenced. There are two Bayesian inference models to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability to choose from. The first model uses a weakly informative prior distribution for the probability that a case is confirmed by a test, whereas the second model takes a fixed value for this probability as input. Both models use weakly informative prior distributions for the effective reproduction number, the dispersion parameter and the yearly mutation rate and require a fixed value for the probability that the viral genome of a confirmed case is sequenced as input. 
+At the heart of the R-package estRodis are functions to simulate the size distribution of identical sequence clusters and to estimate parameters related to transmission dynamics from the sequence cluster size distribution. The simulation is based on a mathematical model of the size distribution of identical sequence clusters that takes into account the viral transmission process, the mutation of the virus and incomplete case-detection. We described the probability that a case was detected as the product of the probability that a case was confirmed by a test and the probability that the viral genome of a confirmed case is sequenced. There are six Bayesian inference models to estimate the effective reproduction number, the dispersion parameter, the probability a mutation occurs at a case before onward transmission or the yearly mutation rate of the virus and the testing probability to choose from.
+
+### Overview of models
+
+* `model one` informative prior distribution for the yearly mutation rate (normal distribution with mean 14 and variance 0.25) and weakly informative prior distribution for the probability that a case is confirmed by a test (scaled beta distribution on the interval [0.05, 1] with parameters (1,3), see below for more details on the scaled beta distribution)
+* `model two`
+* `model three`
+* `model four`
+* `model five` 
+* `model six`
+
+All models use weakly informative prior distributions for the effective reproduction number $R_{e}$ (gamma distributions with parameters (10, 10)) and the dispersion parameter $k$ (gamma distribution with parameters (5,10)). Model five is the main model and is presented in the paper "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al. (see [medRxiv](https://www.medrxiv.org/content/10.1101/2024.05.26.24307940v1)). the other five models are discussed in the supplementary material.
+
+The first model uses a weakly informative prior distribution for the probability that a case is confirmed by a test, whereas the second model takes a fixed value for this probability as input. Both models use weakly informative prior distributions for the effective reproduction number, the dispersion parameter and the yearly mutation rate and require a fixed value for the probability that the viral genome of a confirmed case is sequenced as input. 
 
 ## (B) General remarks
 
