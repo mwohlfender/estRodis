@@ -55,61 +55,59 @@ Result:
 |__frequency__| 742 | 104 | 49 | 31 | 22 | 13 | 9 | 6 | 2 | 4 | 2 | 6 | 1 | 2 | 2 | 1 | 1 | 1 | 1 | 1 |
 |__percentage__| 0.742 | 0.104 | 0.049 | 0.031 | 0.022 | 0.013 | 0.009 | 0.006 | 0.002 | 0.004 | 0.002 | 0.006 | 0.001 | 0.002 | 0.002 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
 
-### (D2) Apply model one
+### (D2) Apply model five
 
-We apply model one to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the clusters we simulated in section (D1).
+We apply model five to estimate the effective reproduction number, the dispersion parameter, the mutation probability and the testing probability from the clusters we simulated in section (D1).
 ```
 options(mc.cores = parallelly::availableCores())
 
-estRodis_estimate_parameters_one(clusters_size = simulated_clusters$size,
-                                 clusters_freq = simulated_clusters$frequency,
-                                 sequencing_proba = 0.44)
+estRodis_estimate_parameters_five(clusters_size = simulated_clusters$size,
+                                  clusters_freq = simulated_clusters$frequency,
+                                  sequencing_proba = 0.44)
 ```
 Result:
 ```
-Inference for Stan model: estRodis_stan_model_estimate_parameters_one.
+Inference for Stan model: estRodis_stan_model_estimate_parameters_five.
 4 chains, each with iter=2000; warmup=1000; thin=1; 
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
-                            mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
-R                           0.81    0.00 0.06     0.71     0.76     0.80     0.85     0.95  1171    1
-k                           0.34    0.00 0.08     0.19     0.28     0.33     0.39     0.53  1813    1
-number_yearly_mutations    13.99    0.01 0.49    13.00    13.66    13.99    14.31    14.95  2254    1
-testing_proba               0.60    0.01 0.24     0.15     0.41     0.62     0.81     0.99  1061    1
-mutation_proba              0.18    0.00 0.01     0.17     0.18     0.18     0.18     0.19  2252    1
-detection_proba             0.27    0.00 0.11     0.07     0.18     0.27     0.36     0.43  1061    1
-lp__                    -1156.67    0.04 1.54 -1160.57 -1157.41 -1156.29 -1155.53 -1154.84  1200    1
+                    mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
+R                   0.89    0.00 0.09     0.74     0.82     0.88     0.94     1.08  1144    1
+k                   0.29    0.00 0.07     0.16     0.24     0.28     0.33     0.44  1905    1
+mutation_proba      0.29    0.00 0.05     0.20     0.25     0.29     0.32     0.38  1559    1
+testing_proba       0.65    0.01 0.23     0.20     0.49     0.68     0.84     0.98  1204    1
+detection_proba     0.29    0.00 0.10     0.09     0.21     0.30     0.37     0.43  1204    1
+lp__            -1165.95    0.04 1.48 -1169.70 -1166.68 -1165.62 -1164.86 -1164.08  1199    1
 
-Samples were drawn using NUTS(diag_e) at Tue Mar 26 11:01:36 2024.
+Samples were drawn using NUTS(diag_e) at Tue Oct  1 15:42:56 2024.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).
 ```
-### (D3) Apply model two
+### (D3) Apply model six
 
-We apply model two to estimate the effective reproduction number, the dispersion parameter, the yearly mutation rate and the testing probability from the clusters we simulated in section (D1).
+We apply model six to estimate the effective reproduction number, the dispersion parameter, the mutation probability and the testing probability from the clusters we simulated in section (D1).
 ```
 options(mc.cores = parallelly::availableCores())
 
-estRodis_estimate_parameters_two(clusters_size = simulated_clusters$size,
+estRodis_estimate_parameters_six(clusters_size = simulated_clusters$size,
                                  clusters_freq = simulated_clusters$frequency,
                                  testing_proba = 0.55,
                                  sequencing_proba = 0.44)
 ```
 Result:
 ```
-Inference for Stan model: estRodis_stan_model_estimate_parameters_two.
+Inference for Stan model: estRodis_stan_model_estimate_parameters_six.
 4 chains, each with iter=2000; warmup=1000; thin=1; 
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
-                            mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
-R                           0.81    0.00 0.02     0.76     0.79     0.81     0.83     0.86  3181    1
-k                           0.34    0.00 0.07     0.22     0.29     0.33     0.38     0.51  2630    1
-number_yearly_mutations    14.01    0.01 0.51    13.04    13.66    14.00    14.34    15.02  2763    1
-mutation_proba              0.18    0.00 0.01     0.17     0.18     0.18     0.18     0.19  2761    1
-lp__                    -1154.64    0.03 1.22 -1157.85 -1155.19 -1154.32 -1153.76 -1153.24  2102    1
+                   mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff Rhat
+R                  0.90    0.00 0.06     0.79     0.86     0.90     0.94     1.04  1439    1
+k                  0.28    0.00 0.06     0.18     0.23     0.27     0.31     0.42  1748    1
+mutation_proba     0.29    0.00 0.04     0.20     0.26     0.29     0.32     0.38  1467    1
+lp__           -1163.88    0.03 1.19 -1166.78 -1164.44 -1163.58 -1163.00 -1162.51  1345    1
 
-Samples were drawn using NUTS(diag_e) at Tue Mar 26 11:09:22 2024.
+Samples were drawn using NUTS(diag_e) at Tue Oct  1 15:47:19 2024.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).
@@ -117,33 +115,30 @@ convergence, Rhat=1).
 
 ## (E) Short description of the functionality of the R package estRodis
 
-The R package estRodis contains nine functions. Short introductions of all functions are provided below, more detailed information on input and output values can be found in the documentation of the respective function within the R package.
+The R package estRodis contains 18 functions. Short introductions of all functions are provided below, more detailed information on input and output values can be found in the documentation of the respective function within the R package.
 
 ### E.1 simulate cluster sizes
-Simulate the size of identical sequence clusters.
+Simulate the size of identical sequence clusters implementing the mutation process via the yearly mutation rate and the mean generation interval.
 
-### E.2 simulate transmission chain
+### E.2 simulate cluster sizes v2
+Simulate the size of identical sequence clusters implementing the mutation process directly via the probability a mutation occurs at a case before onward transmission.
+
+### E.3 simulate transmission chain
 Simulate a transmission chain.
 
-### E.3 plot transmission chain
+### E.4 plot transmission chain
 Create a plot of a transmission chain.
 
-### E.4 plot transmission chain with mutations
+### E.5 plot transmission chain with mutations
 Create a plot of a transmission chain including mutations of the viral genome.
 
-### E.5 estimate parameters model one
-Apply model one to estimate parameters from the sequence cluster size distribution.
+### E.6 estimate parameters model one, two , three, four, five and six
+Apply model one, two, three, four, five or six to estimate parameters from the sequence cluster size distribution.
 
-### E.6 estimate parameters model two
-Apply model two to estimate parameters from the sequence cluster size distribution.
+### E.7 initialize parameters model one, two , three, four, five and six
+Determine initial values for model one, two, three, four, five or six.
 
-### E.7 initialize parameters model one
-Determine initial values for model one.
-
-### E.8 initialize parameters model two
-Determine initial values for model two.
-
-### E.9 scaled beta distribution
+### E.8 scaled beta distribution
 Probability density function of a scaled version of the beta distribution. 
 
 $$ f \left( x \right) = \frac{ \left( x - 0.05 \right)^{ \alpha - 1 } \left( 1 - x \right)^{ \beta - 1 }}{ \left( 1 - 0.05 \right)^{ \alpha + \beta - 1 }} \frac{\Gamma \left( \alpha + \beta \right) }{ \Gamma \left( \alpha \right) \Gamma \left( \beta \right)} \quad \forall x  \in \left[ 0.05, 1 \right]  $$
