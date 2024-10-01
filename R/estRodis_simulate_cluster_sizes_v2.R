@@ -22,7 +22,7 @@
 #'
 #' @export
 #'
-#' @examples estRodis_simulate_cluster_sizes()
+#' @examples estRodis_simulate_cluster_sizes_v2()
 
 estRodis_simulate_cluster_sizes_v2 <- function(n_clusters = 1000,
                                                max_cluster_size = 2500,
