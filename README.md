@@ -22,15 +22,15 @@ All models use weakly informative prior distributions for the effective reproduc
 The code used for the statistical analysis of the paper "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al. (see [medRxiv](https://www.medrxiv.org/content/10.1101/2024.05.26.24307940v1)), which is a use case of the estRodis package, can be found here: [GitHub Martin Wohlfender](https://github.com/mwohlfender/R_overdispersion_cluster_size)
 
 ### B.2 Name convention
-Whenever "model one" is mentioned in comments in the code, this refers to the standard model developed in the paper (prior distribution for testing probability) and "model two" refers to the alternative model described in the section "Sensitivity analysis" of the supplementary material (fixed value for testing probability).
+Whenever "model five" is mentioned in comments in the code, this refers to the standard model developed in the paper. model one", "model two", "model three", "model four" and "model six" refer to the alternative models described in the section "Sensitivity analysis" of the supplementary material of the paper  "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al.
 
 ## (C) How to install the R package estRodis
 
 R code to install the latest stable release of the estRodis package: \
-```devtools::install_github("mwohlfender/estRodis", ref = "main", force = TRUE)```
+```devtools::install_github("mwohlfender/estRodis@v1.0.0", ref = "main", force = TRUE)```
 
 R code to install the newest development version of the estRodis package: \
-```devtools::install_github("mwohlfender/estRodis@v0.0.1-zeta", ref = "main", force = TRUE)```
+```devtools::install_github("mwohlfender/estRodis", ref = "main", force = TRUE)```
 
 ## (D) How to use the R package estRodis
 
@@ -39,22 +39,21 @@ In the following we present code examples how to use the main functionalities of
 
 We simulate 1000 identical sequence clusters. 
 ```
-simulated_clusters <- estRodis_simulate_cluster_sizes(n_clusters = 1000,
-                                                      max_cluster_size = 2500,
-                                                      R = 0.8,
-                                                      k = 0.3,
-                                                      yearly_mutation_rate = 14,
-                                                      mean_generation_interval = 5.2,
-                                                      testing_proba = 0.6,
-                                                      sequencing_proba = 0.4)
+simulated_clusters <- estRodis_simulate_cluster_sizes_v2(n_clusters = 1000,
+                                                         max_cluster_size = 2500,
+                                                         R = 0.8,
+                                                         k = 0.3,
+                                                         mutation_proba = 0.2,
+                                                         testing_proba = 0.6,
+                                                         sequencing_proba = 0.4)
 ```
 Result:
 
 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|__size__| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 19 | 20 | 22 | 24 | 26 |
-|__frequency__| 725 | 111 | 59 | 31 | 16 | 13| 10 | 3 | 6 | 2 | 3 | 4 | 4 | 2 | 4 | 1 | 2 | 1 | 1 | 1 | 1 |
-|__percentage__| 0.725 | 0.111 | 0.059 | 0.031 | 0.016 | 0.013 | 0.01 | 0.003 | 0.006 | 0.002 | 0.003 | 0.004 | 0.004 | 0.002 | 0.004 | 0.001 | 0.002 | 0.001 | 0.001 | 0.001 | 0.001|
+|__size__| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 13 | 14 | 15 | 18 | 19 | 21 | 25 | 28 | 31 |
+|__frequency__| 742 | 104 | 49 | 31 | 22 | 13 | 9 | 6 | 2 | 4 | 2 | 6 | 1 | 2 | 2 | 1 | 1 | 1 | 1 | 1 |
+|__percentage__| 0.742 | 0.104 | 0.049 | 0.031 | 0.022 | 0.013 | 0.009 | 0.006 | 0.002 | 0.004 | 0.002 | 0.006 | 0.001 | 0.002 | 0.002 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
 
 ### (D2) Apply model one
 
