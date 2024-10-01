@@ -12,13 +12,13 @@ estRodis_init_params_model_one(
 )
 }
 \arguments{
-\item{prior_r}{Parameters for prior distribution of R (gamma)}
+\item{prior_r}{Parameters for prior distribution of R (shape and rate parameter for gamma distribution)}
 
-\item{prior_k}{Parameters for prior distribution of k (gamma)}
+\item{prior_k}{Parameters for prior distribution of k (shape and rate parameter for gamma distribution)}
 
-\item{prior_number_yearly_mutations}{Parameters for prior distribution of the number of yearly mutations (normal)}
+\item{prior_number_yearly_mutations}{Parameters for prior distribution of the number of yearly mutations (mean and standard deviation for normal distribution)}
 
-\item{prior_testing}{Parameters for prior distribution of testing probability (scaled beta)}
+\item{prior_testing}{Parameters for prior distribution of testing probability (scaled beta distribution)}
 }
 \value{
 A named list containing samples of the prior distributions of R, k, the number of yearly mutations and the testing probability.

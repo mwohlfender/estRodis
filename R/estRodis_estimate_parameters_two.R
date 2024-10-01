@@ -41,8 +41,8 @@
 #' Parameters are estimated by a Bayesian inference model implemented in Stan.
 #' The effective reproduction number, the dispersion parameter and the number of yearly mutations
 #' are included into the model with prior distributions. The mean generation interval,
-#' the testing probability  and the sequencing probability are included into
-#' the model as fixed parameters. More details can be found in the following paper: ADD REFERENCE
+#' the testing probability and the sequencing probability are included into the model as fixed parameters.
+#' More details can be found in the following paper: ADD REFERENCE
 #'
 #' @return An object of S4 class `stanfit` containing the fitted results.
 #'

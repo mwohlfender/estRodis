@@ -160,12 +160,12 @@ estRodis_simulate_transmission_chain <- function(max_chain_size = 100,
 
     # add information about mutation process to edges
     edges <- edges |> dplyr::mutate(from_variant = nodes$current_variant[edges$from],
-                                    to_variant = nodes$current_variant[edges$to],
-                                    variant_transmitted = nodes$variant_received[edges$to])
+                                     to_variant = nodes$current_variant[edges$to],
+                                     variant_transmitted = nodes$variant_received[edges$to])
 
     # add information about detection process to edges
     edges <- edges |> dplyr::mutate(from_detected = nodes$detection[edges$from],
-                                    to_detected = nodes$detection[edges$to])
+                                     to_detected = nodes$detection[edges$to])
 
   }
 

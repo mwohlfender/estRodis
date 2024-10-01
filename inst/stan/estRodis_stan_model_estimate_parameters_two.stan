@@ -1,6 +1,5 @@
 
-// stan model for estimation of the effective reproduction number, the overdispersion parameter,
-// the number of yearly mutations and the testing probability
+// stan model for estimation of the effective reproduction number, the overdispersion parameter and the number of yearly mutations
 
 #include "/stan_functions/estRodis_stan_functions_estimate_parameters.stan"
 
@@ -35,11 +34,11 @@ transformed parameters {
 
 model {
   // prior distributions
-  // alpha = prior_r[1], beta = prior_r[2]
+  // alpha (shape) = prior_r[1], beta (rate) = prior_r[2]
   R ~ gamma(prior_r[1], prior_r[2]);
-  // alpha = prior_k[1], beta = prior_k[2]
+  // alpha (shape) = prior_k[1], beta (rate) = prior_k[2]
   k ~ gamma(prior_k[1], prior_k[2]);
-  // mu = prior_number_yearly_mutations[1], sigma = prior_number_yearly_mutations[2]
+  // mu (mean) = prior_number_yearly_mutations[1], sigma (sd) = prior_number_yearly_mutations[2]
   number_yearly_mutations ~ normal(prior_number_yearly_mutations[1], prior_number_yearly_mutations[2]);
 
   // likelihood
