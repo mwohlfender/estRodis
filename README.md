@@ -7,16 +7,14 @@ At the heart of the R-package estRodis are functions to simulate the size distri
 
 ### Overview of models
 
+All models use weakly informative prior distributions for the effective reproduction number $R_{e}$ (gamma distributions with parameters (10, 10)) and the dispersion parameter $k$ (gamma distribution with parameters (5,10)). Model five is the main model and is presented in the paper "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al. (see [medRxiv](https://www.medrxiv.org/content/10.1101/2024.05.26.24307940v1)). The other five models are discussed in the supplementary material.
+
 * `model one` informative prior distribution for the yearly mutation rate (normal distribution with mean 14 and variance 0.25) and weakly informative prior distribution for the probability that a case is confirmed by a test (scaled beta distribution on the interval [0.05, 1] with parameters (1,3), see below for more details on the scaled beta distribution)
-* `model two`
-* `model three`
-* `model four`
-* `model five` 
-* `model six`
-
-All models use weakly informative prior distributions for the effective reproduction number $R_{e}$ (gamma distributions with parameters (10, 10)) and the dispersion parameter $k$ (gamma distribution with parameters (5,10)). Model five is the main model and is presented in the paper "Estimating $R_e$ and overdispersion in secondary cases from the size of identical sequence clusters of SARS-CoV-2" by Emma Hodcroft et al. (see [medRxiv](https://www.medrxiv.org/content/10.1101/2024.05.26.24307940v1)). the other five models are discussed in the supplementary material.
-
-The first model uses a weakly informative prior distribution for the probability that a case is confirmed by a test, whereas the second model takes a fixed value for this probability as input. Both models use weakly informative prior distributions for the effective reproduction number, the dispersion parameter and the yearly mutation rate and require a fixed value for the probability that the viral genome of a confirmed case is sequenced as input. 
+* `model two` informative prior distribution for the yearly mutation rate (normal distribution with mean 14 and variance 0.25) and constant value for the probability that a case is confirmed by a test
+* `model three` constant value for the probability a mutation occurs at a case before onward transmission and weakly informative prior distribution for the probability that a case is confirmed by a test (scaled beta distribution on the interval [0.05, 1] with parameters (1,3), see below for more details on the scaled beta distribution)
+* `model four` constant value for the probability a mutation occurs at a case before onward transmission and constant value for the probability that a case is confirmed by a test
+* `model five` informative prior distribution for the probability a mutation occurs at a case before onward transmission (beta distribution with parameters (27,68)) and weakly informative prior distribution for the probability that a case is confirmed by a test (scaled beta distribution on the interval [0.05, 1] with parameters (1,3), see below for more details on the scaled beta distribution)
+* `model six` informative prior distribution for the probability a mutation occurs at a case before onward transmission (beta distribution with parameters (27,68)) and constant value for the probability that a case is confirmed by a test
 
 ## (B) General remarks
 
